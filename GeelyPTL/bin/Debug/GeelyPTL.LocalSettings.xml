@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LocalSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceIP>localhost</ServiceIP>
+  <ServicePort>5980</ServicePort>
+  <PtlToLesServiceUrl>http://172.22.80.28:1839/Service/PtlToLesService</PtlToLesServiceUrl>
+  <PtlToMesServiceUrl>http://10.34.91.56:8088/mes-interface/remote/toMes</PtlToMesServiceUrl>
+  <ConnectionStringProviderName>System.Data.SqlClient</ConnectionStringProviderName>
+  <ConnectionStringFormat>Server=.;Database=GEELY_PTL;User Id=sa;Password={0};Application Name='GeelyPTL';</ConnectionStringFormat>
+  <ConnectionStringPassword>199303</ConnectionStringPassword>
+  <OpcServiceName>Kepware.KEPServerEX.V5</OpcServiceName>
+  <OpcServerIP>172.22.80.33</OpcServerIP>
+  <HistoryHoldingDays>30</HistoryHoldingDays>
+  <PtlToAgvServiceUrl>http://10.34.252.94:80/rcs/services/rest/hikRpcService</PtlToAgvServiceUrl>
+</LocalSettings>

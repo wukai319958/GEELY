@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="GeelyPTL.UserControls.ChannelsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localConverters="clr-namespace:GeelyPTL.Converters"
+             xmlns:localViewModels="clr-namespace:GeelyPTL.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="550"
+             d:DesignWidth="1000"
+             Background="White"
+             Initialized="UserControl_Initialized">
+    <UserControl.DataContext>
+        <localViewModels:ChannelsViewModel x:Name="viewModel"/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <localConverters:OnLineToForegroundConverter x:Key="onLineToForegroundConverter"/>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+            <Button x:Name="buttonRefresh"
+                    Content="刷新"
+                    Width="80"
+                    Height="30"
+                    Click="buttonRefresh_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Items}"
+                  AutoGenerateColumns="False"
+                  ColumnHeaderHeight="30"
+                  RowHeight="30"
+                  RowHeaderWidth="0"
+                  GridLinesVisibility="None"
+                  AlternatingRowBackground="AliceBlue"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CFG_Channel.Code}"
+                                    Header="编码"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding CFG_Channel.Name}"
+                                    Header="名称"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding CurrentPalletCode}"
+                                    Header="托盘"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName1}"
+                                    Header="料车一"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName2}"
+                                    Header="料车二"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName3}"
+                                    Header="料车三"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName4}"
+                                    Header="料车四"
+                                    Width="*"/>
+                <DataGridTemplateColumn Header="指示灯在线状态">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="●"
+                                           Foreground="{Binding Light1OnLine, Converter={StaticResource onLineToForegroundConverter}}"/>
+                                <TextBlock Text="●"
+                                           Foreground="{Binding Light2OnLine, Converter={StaticResource onLineToForegroundConverter}}"
+                                           Margin="10,0,0,0"/>
+                                <TextBlock Text="●"
+                                           Foreground="{Binding Light3OnLine, Converter={StaticResource onLineToForegroundConverter}}"
+                                           Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

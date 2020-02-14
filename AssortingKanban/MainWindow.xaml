@@ -1,0 +1,667 @@
+﻿<Window x:Class="AssortingKanban.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AssortingKanban"
+        xmlns:localConverters="clr-namespace:AssortingKanban.Converters"
+        Title="分拣看板"
+        Height="1080"
+        Width="1920"
+        Background="RoyalBlue"
+        ResizeMode="CanMinimize"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Loaded="Window_Loaded">
+    <Window.DataContext>
+        <local:MainWindowViewModel x:Name="viewModel"/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <localConverters:AssortingStatusToForegroundConverter x:Key="assortingStatusToForegroundConverter"/>
+        <localConverters:AssortingStatusToTextConverter x:Key="assortingStatusToTextConverter"/>
+        <localConverters:CartTaskItemDtoSpecialInfoToTextConverter x:Key="cartTaskItemDtoSpecialInfoToTextConverter"/>
+        <localConverters:GridColumnProgressBarColumnWidthConverter x:Key="gridColumnProgressBarColumnWidthConverter"/>
+        <localConverters:IsBigToTextConverter x:Key="isBigToTextConverter"/>
+        <localConverters:IsErrorToHeaderFootFillBrushConverter x:Key="isErrorToHeaderFootFillBrushConverter"/>
+        <localConverters:PalletTaskItemDtoSpecialInfoToTextConverter x:Key="palletTaskItemDtoSpecialInfoToTextConverter"/>
+        <localConverters:PickStatusToForegroundConverter x:Key="pickStatusToForegroundConverter"/>
+        <localConverters:PickStatusToTextConverter x:Key="pickStatusToTextConverter"/>
+        <localConverters:PickTypeToTextConverter x:Key="pickTypeToTextConverter"/>
+
+        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
+               TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background"
+                    Value="white"/>
+            <Setter Property="BorderBrush"
+                    Value="LightGray"/>
+            <Setter Property="BorderThickness"
+                    Value="0,0,0,1"/>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="FontSize"
+                    Value="24"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="1"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Fill="{Binding ServiceError, Converter={StaticResource isErrorToHeaderFootFillBrushConverter}}"/>
+        <TextBlock Text="分拣看板"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <Rectangle x:Name="rectangleClose"
+                   Fill="Transparent"
+                   Width="50"
+                   Height="50"
+                   HorizontalAlignment="Right"
+                   MouseEnter="rectangleClose_MouseEnter"
+                   MouseLeave="rectangleClose_MouseLeave"
+                   MouseLeftButtonDown="rectangleClose_MouseLeftButtonDown"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+                        Margin="0,0"
+                        VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="480"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding ChannelName}"
+                       Margin="30,0,0,0"
+                       FontSize="48"
+                       FontWeight="Bold"
+                       Foreground="#FF04589E"
+                       VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtCurDate" Text="2018-01-01 12:00:00"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#FF04589E"
+                       VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding TaskInfo.CurrentBatchInfo.PickType, Converter={StaticResource pickTypeToTextConverter}}"
+                       Margin="30,0,0,0"
+                       FontSize="48"
+                       FontWeight="Bold"
+                       Foreground="#FF04589E"
+                       VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Margin="20,0"
+                        VerticalAlignment="Center">
+                <Grid>
+                    <TextBlock Text="今日批次"
+                               FontSize="36"
+                               HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding TodayStatistics.FinishedBatchCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                        <TextBlock Text=" / "
+                                   FontSize="36"/>
+                        <TextBlock Text="{Binding TodayStatistics.TotalBatchCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="0,10,0,0"
+                      Height="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='FinishedBatchCount'}"/>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='RemainBatchCount'}"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="LightSeaGreen"/>
+                    <Rectangle Grid.Column="1"
+                               Fill="LightGray"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2"
+                        Margin="20,0"
+                        VerticalAlignment="Center">
+                <Grid>
+                    <TextBlock Text="托盘数量"
+                               FontSize="36"
+                               HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding TodayStatistics.FinishedPalletCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                        <TextBlock Text=" / "
+                                   FontSize="36"/>
+                        <TextBlock Text="{Binding TodayStatistics.TotalPalletCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="0,10,0,0"
+                      Height="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='FinishedPalletCount'}"/>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='RemainPalletCount'}"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="LightSeaGreen"/>
+                    <Rectangle Grid.Column="1"
+                               Fill="LightGray"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="3"
+                        Margin="20,0"
+                        VerticalAlignment="Center">
+                <Grid>
+                    <TextBlock Text="零件数量"
+                               FontSize="36"
+                               HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding TodayStatistics.FinishedMaterialCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                        <TextBlock Text=" / "
+                                   FontSize="36"/>
+                        <TextBlock Text="{Binding TodayStatistics.TotalMaterialCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="0,10,0,0"
+                      Height="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='FinishedMaterialCount'}"/>
+                        <ColumnDefinition Width="{Binding TodayStatistics, Converter={StaticResource gridColumnProgressBarColumnWidthConverter}, ConverterParameter='RemainMaterialCount'}"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="LightSeaGreen"/>
+                    <Rectangle Grid.Column="1"
+                               Fill="LightGray"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+        <Line Grid.Row="2"
+              X1="1"
+              Stroke="DimGray"
+              StrokeDashArray="1 2"
+              Stretch="Fill"
+              VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="20,10,10,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="108"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="项目："
+                               FontSize="36"
+                               Foreground="Gray" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Column="2"
+                               Text="{Binding TaskInfo.CurrentBatchInfo.ProjectCode}"
+                               FontSize="36"
+                               FontWeight="Bold"/>
+
+                    <TextBlock Grid.Column="3"
+                               Text="阶段："
+                               FontSize="36"
+                               Foreground="Gray"/>
+                    <TextBlock Grid.Column="4"
+                               Text="{Binding TaskInfo.CurrentBatchInfo.ProjectStep}"
+                               FontSize="36"
+                               FontWeight="Bold"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="批次："
+                               FontSize="36"
+                               Foreground="Gray" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="2"
+                               Text="{Binding TaskInfo.CurrentBatchInfo.BatchCode}"
+                               FontSize="34"
+                               FontWeight="Bold"/>
+
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="3"
+                               Text="托盘："
+                               FontSize="36"
+                               Foreground="Gray"/>
+                    <StackPanel Grid.Row="1"
+                                Grid.Column="4"
+                                Orientation="Horizontal">
+                        <TextBlock Text="{Binding TaskInfo.CurrentBatchInfo.FinishedPalletCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="ForestGreen"/>
+                        <TextBlock Text=" / "
+                                   FontSize="36"/>
+                        <TextBlock Text="{Binding TaskInfo.CurrentBatchInfo.TotalPalletCount}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="Firebrick"/>
+                    </StackPanel>
+                </Grid>
+
+                <Line Grid.Row="1"
+                      X1="1"
+                      Stroke="DimGray"
+                      StrokeDashArray="1 2"
+                      Stretch="Fill"
+                      VerticalAlignment="Top"/>
+
+                <StackPanel Grid.Row="1"
+                            Margin="0,20,0,0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                    <TextBlock Text="待拣选"
+                               FontSize="20"/>
+                    <Rectangle Margin="10,0,0,0"
+                               Width="30"
+                               Height="30"
+                               Stroke="Gray"
+                               Fill="White"/>
+                    <TextBlock Margin="50,0,0,0"
+                               Text="分拣中"
+                               FontSize="20"/>
+                    <Rectangle Margin="10,0,0,0"
+                               Width="30"
+                               Height="30"
+                               Stroke="Gray"
+                               Fill="Goldenrod"/>
+                    <TextBlock Margin="50,0,0,0"
+                               Text="已拣选"
+                               FontSize="20"/>
+                    <Rectangle Margin="10,0,0,0"
+                               Width="30"
+                               Height="30"
+                               Stroke="Gray"
+                               Fill="LightSeaGreen"/>
+                    <TextBlock Margin="50,0,0,0"
+                               Text="无任务"
+                               FontSize="20"/>
+                    <Rectangle Margin="10,0,0,0"
+                               Width="30"
+                               Height="30"
+                               Stroke="Gray"
+                               Fill="LightGray"/>
+                </StackPanel>
+
+                <local:PalletUserControl x:Name="normalPalletUserControl" 
+                                         Grid.Row="1"
+                                         DataContext="{Binding TaskInfo.CurrentPalletTask}"
+                                         Width="600"
+                                         Height="500"
+                                         Panel.ZIndex="1"/>
+
+                <local:StandardPalletUserControl x:Name="standardPalletUserControl" 
+                                         Grid.Row="1"
+                                         Visibility="Hidden" 
+                                         DataContext="{Binding TaskInfo.CurrentPalletTask}"
+                                         Width="600"
+                                         Height="500"
+                                         Panel.ZIndex="1"/>
+
+                <TextBlock Grid.Row="1"
+                           Margin="0,0,0,15"
+                           Text="{Binding TaskInfo.CurrentPalletTask.PalletCode}"
+                           FontSize="36"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <Line Grid.Column="1"
+                  Margin="0,5,0,0"
+                  Y1="1"
+                  Stroke="DimGray"
+                  StrokeDashArray="1 2"
+                  Stretch="Fill"/>
+
+            <Grid Grid.Column="2"
+                  Margin="0,5,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+
+                <Rectangle Fill="LightGray"/>
+                <TextBlock Margin="20,0,0,0"
+                           Text="拣选明细"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                <StackPanel Margin="0,0,20,0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+                    <TextBlock Text="托盘："
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="{Binding TaskInfo.CurrentPalletTask.PalletCode}"
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                </StackPanel>
+
+                <DataGrid Grid.Row="1"
+                          ItemsSource="{Binding TaskInfo.CurrentPalletTask.Items}"
+                          AutoGenerateColumns="False"
+                          FontSize="20"
+                          ColumnHeaderHeight="50"
+                          RowHeight="45"
+                          RowHeaderWidth="0"
+                          BorderThickness="0"
+                          Background="White"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="LightGray"
+                          CanUserReorderColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserSortColumns="False"
+                          CanUserResizeRows="False"
+                          SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="储位"
+                                                Width="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FromPalletPosition}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="工位"
+                                                Width="80">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding WorkStationCode}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="物料编码"
+                                                Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MaterialCode}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="物料名称"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MaterialName}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="特殊件"
+                                                Width="Auto"
+                                                MinWidth="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource palletTaskItemDtoSpecialInfoToTextConverter}}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="大件"
+                                                MinWidth="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IsBig, Converter={StaticResource isBigToTextConverter}}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="已拣数量"
+                                                Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PickedQuantity}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="应拣数量"
+                                                Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ToPickQuantity}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="状态"
+                                                Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PickStatus, Converter={StaticResource pickStatusToTextConverter}}"
+                                               Foreground="{Binding PickStatus, Converter={StaticResource pickStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Rectangle Grid.Row="3"
+                           Fill="LightGray"/>
+                <TextBlock Grid.Row="3"
+                           Margin="20,0,0,0"
+                           Text="播种明细"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                <StackPanel Grid.Row="3"
+                            Margin="0,0,20,0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+                    <TextBlock Text="料车："
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="{Binding TaskInfo.CurrentCartTask.CartName}"
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                </StackPanel>
+
+                <DataGrid Grid.Row="4"
+                          ItemsSource="{Binding TaskInfo.CurrentCartTask.Items}"
+                          AutoGenerateColumns="False"
+                          FontSize="20"
+                          ColumnHeaderHeight="50"
+                          RowHeight="45"
+                          RowHeaderWidth="0"
+                          BorderThickness="0"
+                          Background="White"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="LightGray"
+                          CanUserReorderColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserSortColumns="False"
+                          CanUserResizeRows="False"
+                          SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="储位"
+                                                Width="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CartPosition}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="工位"
+                                                Width="80">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding WorkStationCode}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="物料编码"
+                                                Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MaterialCode}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="物料名称"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MaterialName}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="特殊件"
+                                                Width="Auto"
+                                                MinWidth="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource cartTaskItemDtoSpecialInfoToTextConverter}}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="大件"
+                                                MinWidth="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IsBig, Converter={StaticResource isBigToTextConverter}}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="已播数量"
+                                                Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PickedQuantity}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="库位容量"
+                                                Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MaxQuantityInSingleCartPosition}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="状态"
+                                                Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding AssortingStatus, Converter={StaticResource assortingStatusToTextConverter}}"
+                                               Foreground="{Binding AssortingStatus, Converter={StaticResource assortingStatusToForegroundConverter}}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+
+        <Rectangle Grid.Row="3"
+                   Fill="{Binding ServiceError, Converter={StaticResource isErrorToHeaderFootFillBrushConverter}}"/>
+    </Grid>
+</Window>

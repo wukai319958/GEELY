@@ -1,0 +1,596 @@
+﻿<UserControl x:Class="GeelyPTL.UserControls.ServiceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:localConverters="clr-namespace:GeelyPTL.Converters"
+             xmlns:localViewModels="clr-namespace:GeelyPTL.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="650"
+             d:DesignWidth="1000"
+             Background="White"
+             Initialized="UserControl_Initialized">
+    <UserControl.DataContext>
+        <localViewModels:ServiceViewModel x:Name="viewModel"/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <localConverters:IsRunningToImageSourceConverter x:Key="isRunningToImageSourceConverter"/>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="● 外部系统接口："
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="4"/>
+
+            <Image Grid.Row="1"
+                   Source="{Binding LesToPtlServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="LES → PTL："
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                <TextBlock Text="http://"
+                           VerticalAlignment="Center"/>
+                <ComboBox Text="{Binding ServiceIP}"
+                          ItemsSource="{Binding IPCollection}"
+                          Margin="5,0"
+                          Width="120"
+                          VerticalAlignment="Center"
+                          IsEditable="True"/>
+                <TextBlock Text=":"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding ServicePort}"
+                         Margin="5,0"
+                         Width="50"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="/LesToPtlService/"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="buttonBrowseLesToPtlService"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Content="浏览..."
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Click="buttonBrowseLesToPtlService_Click"/>
+
+            <Image Grid.Row="2"
+                   Source="{Binding MesToPtlServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="1"
+                       Text="MES → PTL："
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="2"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                <TextBlock Text="http://"
+                           VerticalAlignment="Center"/>
+                <ComboBox Text="{Binding ServiceIP}"
+                          ItemsSource="{Binding IPCollection}"
+                          Margin="5,0"
+                          Width="120"
+                          VerticalAlignment="Center"
+                          IsEditable="True"/>
+                <TextBlock Text=":"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding ServicePort}"
+                         Margin="5,0"
+                         Width="50"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="/MesToPtlService/"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="buttonBrowseMesToPtlService"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Content="浏览..."
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Click="buttonBrowseMesToPtlService_Click"/>
+
+            <Image Grid.Row="3"
+                   Source="{Binding PtlToLesServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="3"
+                       Grid.Column="1"
+                       Text="PTL → LES："
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="3"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                <TextBlock Text="http://"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding LesServiceIP}"
+                         Margin="5,0"
+                         Width="120"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text=":"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding LesServicePort}"
+                         Margin="5,0"
+                         Width="50"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="/Service/PtlToLesService"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="buttonBrowsePtlToLesService"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Content="浏览..."
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Click="buttonBrowsePtlToLesService_Click"/>
+
+            <Image Grid.Row="4"
+                   Source="{Binding PtlToMesServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="4"
+                       Grid.Column="1"
+                       Text="PTL → MES："
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="4"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                <TextBlock Text="http://"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding MesServiceIP}"
+                         Margin="5,0"
+                         Width="120"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text=":"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding MesServicePort}"
+                         Margin="5,0"
+                         Width="50"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="/mes-interface/remote/toMes"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="buttonBrowsePtlToMesService"
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Content="浏览..."
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Click="buttonBrowsePtlToMesService_Click"/>
+
+            <Image Grid.Row="5"
+                   Source="{Binding PtlToAgvServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="5"
+                       Grid.Column="1"
+                       Text="PTL → AGV："
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="5"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                <TextBlock Text="http://"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding AgvServiceIP}"
+                         Margin="5,0"
+                         Width="120"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text=":"
+                           VerticalAlignment="Center"/>
+                <TextBox Text="{Binding AgvServicePort}"
+                         Margin="5,0"
+                         Width="50"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="/rcs/services/rest/hikRpcService"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button x:Name="buttonBrowsePtlToAgvService"
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Content="浏览..."
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left" 
+                    Click="buttonBrowsePtlToAgvService_Click"/>
+        </Grid>
+
+        <Line Grid.Row="1"
+              X1="1"
+              Stroke="DimGray"
+              StrokeDashArray="1 2"
+              Stretch="Fill"
+              VerticalAlignment="Bottom"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="● 数据库连接："
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="5"/>
+
+            <Image Grid.Row="1"
+                   Source="{Binding DatabaseIsOnline, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <ComboBox SelectedItem="{Binding ConnectionStringProviderName}"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center">
+                <ComboBox.Items>
+                    <System:String>System.Data.SqlClient</System:String>
+                    <System:String>Oracle.ManagedDataAccess.Client</System:String>
+                </ComboBox.Items>
+            </ComboBox>
+            <ComboBox Text="{Binding ConnectionStringFormat}"
+                      Grid.Row="1"
+                      Grid.Column="2"
+                      Margin="5,0,0,0"
+                      IsEditable="True"
+                      VerticalAlignment="Center">
+                <ComboBox.Items>
+                    <System:String>Server=.;Database=GEELY_PTL;User Id=sa;Password={0};Application Name='GeelyPTL';</System:String>
+                    <System:String>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=ORCL)));User Id=GEELY_PTL;Password={0};</System:String>
+                </ComboBox.Items>
+            </ComboBox>
+            <PasswordBox x:Name="passwordBoxConnectionStingPassword"
+                         Grid.Row="1"
+                         Grid.Column="3"
+                         Margin="5,0"
+                         VerticalAlignment="Center"
+                         PasswordChanged="passwordBoxConnectionStingPassword_PasswordChanged"/>
+            <Button x:Name="buttonTestConnectionString"
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Content="测试"
+                    Width="80"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Click="buttonTestConnectionString_Click"/>
+        </Grid>
+
+        <Line Grid.Row="3"
+              X1="1"
+              Stroke="DimGray"
+              StrokeDashArray="1 2"
+              Stretch="Fill"
+              VerticalAlignment="Bottom"/>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="● 业务逻辑："
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="5"/>
+
+            <Image Grid.Row="1"
+                   Source="{Binding ChannelPtlIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="分拣口指示灯"
+                       VerticalAlignment="Center"/>
+            <Image Grid.Row="1"
+                   Grid.Column="2"
+                   Source="{Binding CartPtlIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="3"
+                       Text="料车指示灯"
+                       VerticalAlignment="Center"/>
+
+            <Image Grid.Row="2"
+                   Source="{Binding AssortingTaskLoaderIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="1"
+                       Text="分拣任务加载"
+                       VerticalAlignment="Center"/>
+            <Image Grid.Row="2"
+                   Grid.Column="2"
+                   Source="{Binding AssortingResultWriteBackIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="3"
+                       Text="分拣结果回传"
+                       VerticalAlignment="Center"/>
+
+            <Image Grid.Row="3"
+                   Source="{Binding CartFindingTaskLoaderIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="3"
+                       Grid.Column="1"
+                       Text="配送任务加载"
+                       VerticalAlignment="Center"/>
+            <Image Grid.Row="3"
+                   Grid.Column="2"
+                   Source="{Binding CartFindingResultWriteBackIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="3"
+                       Grid.Column="3"
+                       Text="配送结果回传"
+                       VerticalAlignment="Center"/>
+
+            <Image Grid.Row="4"
+                   Source="{Binding AssembleTaskLoaderIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="4"
+                       Grid.Column="1"
+                       Text="装配指引任务加载"
+                       VerticalAlignment="Center"/>
+            <Image Grid.Row="4"
+                   Grid.Column="2"
+                   Source="{Binding AssembleResultWriteBackIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <TextBlock Grid.Row="4"
+                       Grid.Column="3"
+                       Text="装配结果回传"
+                       VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Column="4"
+                       HorizontalAlignment="Left"
+                       Margin="0,7"
+                       Text="● AGV业务逻辑："
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="2"
+                       Width="390"/>
+            <Image Grid.Row="1"
+                   Grid.Column="4"
+                   Source="{Binding PtlToAgvServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"
+                   Margin="12,7"/>
+            <Button x:Name="btnOpenAgv"
+                    Content="开启AGV配送PTL服务"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Margin="0,0,0,2"
+                    Click="btnOpenAgv_Click"/>
+            <Button x:Name="btnCloseAgv"
+                    Content="关闭AGV配送PTL服务"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Margin="130,0,0,2"
+                    Click="btnCloseAgv_Click"/>
+            <TextBlock x:Name="txtAgvStatusDesc"
+                       Grid.Row="1"
+                       Grid.Column="6"
+                       Text="● AGV配送PTL服务已开启"
+                       VerticalAlignment="Center"/>
+
+            <Button x:Name="btnPickAreaInit"
+                    Content="拣料区铺线"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="3"
+                    Width="125"
+                    Click="btnPickAreaInit_Click"
+                    Margin="0,0,0,2"/>
+            <Button x:Name="btnMarketDistribute"
+                    Content="物料超市配送"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="3"
+                    VerticalAlignment="Bottom"
+                    Width="125"
+                    Click="btnMarketDistribute_Click"
+                    Height="28"
+                    Margin="130,0,0,2"/>
+            <Button x:Name="btnProductAreaClear"
+                    Content="生产线边清线"
+                    Grid.Column="6"
+                    HorizontalAlignment="Left"
+                    Grid.Row="3"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Click="btnProductAreaClear_Click"
+                    Height="28"
+                    Margin="0,0,0,2"/>
+            <Button x:Name="btnCartSwitch"
+                    Content="生产线边空满交换"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="4"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Click="btnCartSwitch_Click"
+                    Margin="0,0,0,2"/>
+            <Button x:Name="btnNullCartBack"
+                    Content="生产线边空料架返回"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="4"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Click="btnNullCartBack_Click"
+                    Margin="130,0,0,2"/>
+            <Image Grid.Row="2"
+                   Grid.Column="4"
+                   Source="{Binding ProductAreaServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"
+                   Margin="12,7"/>
+            <Image Grid.Row="3"
+                   Grid.Column="4"
+                   Source="{Binding ProductAreaServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"
+                   Margin="12,7"/>
+            <Image Grid.Row="4"
+                   Grid.Column="4"
+                   Source="{Binding ProductAreaServiceIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"
+                   Margin="12,7"/>
+            <Button x:Name="btnOpenMaterialMarketDistribute"
+                    Content="开启物料超市配送"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Margin="0,0,0,2"
+                    Click="btnOpenMaterialMarketDistribute_Click"/>
+            <Button x:Name="btnCloseMaterialMarketDistribute"
+                    Content="关闭物料超市配送"
+                    Grid.Column="5"
+                    HorizontalAlignment="Left"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    Width="125"
+                    Height="28"
+                    Margin="130,0,0,2"
+                    Click="btnCloseMaterialMarketDistribute_Click"/>
+            <TextBlock x:Name="txtMaterialMarketDistributeDesc"
+                       Grid.Row="2"
+                       Grid.Column="6"
+                       Text="● AGV物料超市配送服务已开启"
+                       VerticalAlignment="Center"/>
+        </Grid>
+
+        <Line Grid.Row="5"
+              X1="1"
+              Stroke="DimGray"
+              StrokeDashArray="1 2"
+              Stretch="Fill"
+              VerticalAlignment="Bottom"/>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="● 历史记录清除："
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="5"/>
+
+            <Image Grid.Row="1"
+                   Source="{Binding HistoryRemoverIsRunning, Converter={StaticResource isRunningToImageSourceConverter}}"
+                   Width="16"
+                   Height="16"/>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                <ComboBox SelectedItem="{Binding HistoryHoldingDays}"
+                          VerticalAlignment="Center">
+                    <ComboBox.Items>
+                        <System:Int32>15</System:Int32>
+                        <System:Int32>30</System:Int32>
+                        <System:Int32>60</System:Int32>
+                        <System:Int32>90</System:Int32>
+                        <System:Int32>180</System:Int32>
+                        <System:Int32>360</System:Int32>
+                        <System:Int32>2147483647</System:Int32>
+                    </ComboBox.Items>
+                </ComboBox>
+                <TextBlock Text="天"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Line Grid.Row="7"
+              X1="1"
+              Stroke="DimGray"
+              StrokeDashArray="1 2"
+              Stretch="Fill"
+              VerticalAlignment="Bottom"/>
+
+        <Button x:Name="buttonSave"
+                Grid.Row="8"
+                Content="保存"
+                Width="80"
+                Height="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="buttonSave_Click"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ForAssortingKanbanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:5980/ForAssortingKanbanService/?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IForAssortingKanbanService_QueryChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryChannels" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryTodayStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTodayStatistics" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryTodayStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTodayStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryCurrentTaskInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCurrentTaskInfo" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryCurrentTaskInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCurrentTaskInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryPDATodayStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryPDATodayStatistics" />
+  </wsdl:message>
+  <wsdl:message name="IForAssortingKanbanService_QueryPDATodayStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryPDATodayStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IForAssortingKanbanService">
+    <wsdl:operation name="QueryChannels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryChannels" message="tns:IForAssortingKanbanService_QueryChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryChannelsResponse" message="tns:IForAssortingKanbanService_QueryChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTodayStatistics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryTodayStatistics" message="tns:IForAssortingKanbanService_QueryTodayStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryTodayStatisticsResponse" message="tns:IForAssortingKanbanService_QueryTodayStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCurrentTaskInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryCurrentTaskInfo" message="tns:IForAssortingKanbanService_QueryCurrentTaskInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryCurrentTaskInfoResponse" message="tns:IForAssortingKanbanService_QueryCurrentTaskInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPDATodayStatistics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryPDATodayStatistics" message="tns:IForAssortingKanbanService_QueryPDATodayStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForAssortingKanbanService/QueryPDATodayStatisticsResponse" message="tns:IForAssortingKanbanService_QueryPDATodayStatistics_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IForAssortingKanbanService" type="tns:IForAssortingKanbanService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryChannels">
+      <soap:operation soapAction="http://tempuri.org/IForAssortingKanbanService/QueryChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTodayStatistics">
+      <soap:operation soapAction="http://tempuri.org/IForAssortingKanbanService/QueryTodayStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCurrentTaskInfo">
+      <soap:operation soapAction="http://tempuri.org/IForAssortingKanbanService/QueryCurrentTaskInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPDATodayStatistics">
+      <soap:operation soapAction="http://tempuri.org/IForAssortingKanbanService/QueryPDATodayStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ForAssortingKanbanService">
+    <wsdl:port name="BasicHttpBinding_IForAssortingKanbanService" binding="tns:BasicHttpBinding_IForAssortingKanbanService">
+      <soap:address location="http://localhost:5980/ForAssortingKanbanService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

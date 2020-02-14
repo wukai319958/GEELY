@@ -1,0 +1,112 @@
+08:58:14.993
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:00:24.704
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:01:22.011
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:04:26.596
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:06:01.229
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:12:27.664
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:13:32.423
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:14:49.704
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+15:56:36.262
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:02:43.796
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:03:44.447
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:04:46.254
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:05:48.017
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:06:51.623
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:08:00.394
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:09:01.038
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:10:01.782
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:11:05.775
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:12:44.190
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:17:21.901
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:18:26.085
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:19:31.272
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:20:32.484
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:21:40.579
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:22:40.797
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:24:54.009
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:29:17.583
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:30:17.618
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:31:21.188
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+16:32:21.895
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.36.17:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()

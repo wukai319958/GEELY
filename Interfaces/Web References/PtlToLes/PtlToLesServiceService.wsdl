@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://webservice.geelyles.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PtlToLesServiceService" targetNamespace="http://webservice.geelyles.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="PTLCartDepart">
+    <part name="arg0" type="xsd:string" />
+  </message>
+  <message name="PTLCartDepartResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <message name="PTLCartPickBackLes">
+    <part name="arg0" type="xsd:string" />
+  </message>
+  <message name="PTLCartPickBackLesResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <message name="PTLPalletPickBackLes">
+    <part name="arg0" type="xsd:string" />
+  </message>
+  <message name="PTLPalletPickBackLesResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <portType name="PtlToLesService">
+    <operation name="PTLCartDepart">
+      <input wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLCartDepartRequest" message="tns:PTLCartDepart" />
+      <output wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLCartDepartResponse" message="tns:PTLCartDepartResponse" />
+    </operation>
+    <operation name="PTLCartPickBackLes">
+      <input wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLCartPickBackLesRequest" message="tns:PTLCartPickBackLes" />
+      <output wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLCartPickBackLesResponse" message="tns:PTLCartPickBackLesResponse" />
+    </operation>
+    <operation name="PTLPalletPickBackLes">
+      <input wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLPalletPickBackLesRequest" message="tns:PTLPalletPickBackLes" />
+      <output wsam:Action="http://webservice.geelyles.com/PtlToLesService/PTLPalletPickBackLesResponse" message="tns:PTLPalletPickBackLesResponse" />
+    </operation>
+  </portType>
+  <binding name="PtlToLesServicePortBinding" type="tns:PtlToLesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="PTLCartDepart">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </output>
+    </operation>
+    <operation name="PTLCartPickBackLes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </output>
+    </operation>
+    <operation name="PTLPalletPickBackLes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://webservice.geelyles.com/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PtlToLesServiceService">
+    <port name="PtlToLesServicePort" binding="tns:PtlToLesServicePortBinding">
+      <soap:address location="http://172.21.152.122:1838/Service/PtlToLesService" />
+    </port>
+  </service>
+</definitions>

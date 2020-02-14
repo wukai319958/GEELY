@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataAccess.Assorting.AST_CartResult">
+    <Position X="0.5" Y="29.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACIIAAKAAAACBAAAQIAAABQAAgIAAAAAQCIAAAAQA=</HashCode>
+      <FileName>Assorting\AST_CartResult.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_CartResultMessage" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_CartResultItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_CartResultItem">
+    <Position X="5.5" Y="32" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAAAhAAAAAAAAEAAAAAAAAAAgAEAAAA=</HashCode>
+      <FileName>Assorting\AST_CartResultItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_CartResultMessage">
+    <Position X="5.5" Y="29.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAAgAAAAAABAAAABAAAAAAAAAQAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assorting\AST_CartResultMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_LesTask">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACoICACAEAACAAEAAAAAEBUBACIAAAQAAAIAgIAAA=</HashCode>
+      <FileName>Assorting\AST_LesTask.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_LesTaskMessage" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_LesTaskItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_LesTaskItem">
+    <Position X="5.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAQEAAAAAIAgAAAAAAAAEAAAAIAAAAAAQEACAE=</HashCode>
+      <FileName>Assorting\AST_LesTaskItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_LesTaskMessage">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assorting\AST_LesTaskMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletArrived">
+    <Position X="0.5" Y="18.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABCIICACAAAAAAAEAAQAAAAQAAAKAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assorting\AST_PalletArrived.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_PalletArrivedMessage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletArrivedMessage">
+    <Position X="5.5" Y="18.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAA=</HashCode>
+      <FileName>Assorting\AST_PalletArrivedMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletResult">
+    <Position X="0.5" Y="22.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACIICAKAAAQAAAEAAAAAAAQAAgIAAAAAQAIAAAAUA=</HashCode>
+      <FileName>Assorting\AST_PalletResult.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_PalletResultMessage" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_PalletResultItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletResultItem">
+    <Position X="5.5" Y="25.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAkAACAAgABAAAAhAEAAAAAAQAAAAAEACAE=</HashCode>
+      <FileName>Assorting\AST_PalletResultItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletResultMessage">
+    <Position X="5.5" Y="22.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQAAAAgBAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assorting\AST_PalletResultMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletTask">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIICACAAAAAAAEAAAAAAAQAEIKAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assorting\AST_PalletTask.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_PalletTaskItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_PalletTaskItem">
+    <Position X="5.5" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAACIAgABAAAABAFIoAAAASAAgAAmAAQE=</HashCode>
+      <FileName>Assorting\AST_PalletTaskItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PickStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_LesTaskItems" />
+      <Property Name="AST_CartTaskItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_CartTask">
+    <Position X="0.5" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACIIAACAAAACAAAAAIAAABQAEAIAAAAAAiIBAAAAA=</HashCode>
+      <FileName>Assorting\AST_CartTask.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AST_CartTaskItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Assorting.AST_CartTaskItem">
+    <Position X="5.5" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAEAAABAAACAAAAAEAgAAIAAAAAABAAAQA=</HashCode>
+      <FileName>Assorting\AST_CartTaskItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssortingStatus" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="DataAccess.Assorting.PickStatus">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAQEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assorting\PickStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataAccess.Assorting.AssortingStatus">
+    <Position X="10.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAEAUAA=</HashCode>
+      <FileName>Assorting\AssortingStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

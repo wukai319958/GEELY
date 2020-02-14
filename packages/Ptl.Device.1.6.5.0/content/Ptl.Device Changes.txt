@@ -1,0 +1,167 @@
+﻿1.8.3.0
+    1. 修复通讯恢复后，之前失败的设备控制命令继续执行的错误
+
+1.8.2.0
+    1. InputPortStatus 中 InitiallyLow、InitiallyHigh 拼写更正
+    2. 支持无线 XGate DG-WIFI V2 通讯参数的有线配置
+
+1.8.0.0
+    1. 支持使用 XGate 查询总线设备的在线状态
+    2. 支持 .NET Compact Framework 下的 XML 序列化
+
+1.7.1.0
+    1. XGate 加入输入口采集周期属性 InputPortCollectPeriod
+    2. F5 功能从 无任务时 OK 按钮按下灯色 扩展到 光幕进入时 OK 按钮灯色及无任务时 OK 按钮灯色
+    3. 加入 Ptl900U.EnableCollectWithoutDisplayChanged、Scanner.EnableCollectChanged、InputPort.EnableCollectChanged 事件
+    4. 丰富了 XGate 业务命令的日志
+    5. XChannelBase.Broadcaster 标记成 [EditorBrowsable(EditorBrowsableState.Never)]
+
+1.7.0.0
+    1. 加入 PtlIBS 灯塔和 DI 接入器
+    2. 统一 XGate 的输入口逻辑和 PtlIBS 一致
+
+1.6.5.1
+    1. PtlTera 加入 LightsCount 属性
+    2. F8 功能从 OK 按钮可用性扩展到蜂鸣及 OK 按钮可用性
+    3. 无线 XGate 的通讯设置可选择安全类型和加密类型
+    4. PtlDevice、IOPort、XChannel 加入 Remarks 属性
+    5. 减少没有挂载设备的总线和没有附加特性的控制器通讯线程
+
+1.6.5.0
+    1. XGate、XConverter 和 XRelay 的构造函数加入 命令间通讯限流的休眠毫秒数 throttleSleepMilliseconds
+    2. 在设备错误修复后，自动刷新，但存在以下限制：
+        ⑴. 不适用于短时间内的断电再上电，因为时间太短可能未发现错误
+        ⑵. 无需采集时，因为没有通讯而不能发现断电，但可以通过启用心跳来发现
+    3. 加入 RS485BusName 和 OutputPortName 来更表意地选取总线和输出口
+    4. 加入 Ptl.Device.Ptl800U
+    5. Ptl.Device.Ptl900U.Clear 方法加入 Clear(bool) 重载
+    6. 加入 XConverterCollection 和 XReleyCollection 以便分别将 XConverter、XRelay 纳入 InstallProject
+    7. 让 XGate、XConverter、XRelay 继承自 XChannelBase 以便通过 InstallProject.CommunicationChannels 统一遍历
+    8. 删除 XConverter.HeartbeatGenerator 及 HeartbeatGenerator(XConverter) 构造函数
+    9. 修复以 COM1 ～ COM9 等保留字开头的非法文件名作为日志文件名
+
+1.6.4.1
+    1. Ptl900U 未点亮任务时的采集 功能兼容 F1 设置
+    2. 加入 .NET Compact Framework 版本
+
+1.6.4.0
+    1. Ptl.Device.Ptl900U 加入在未点亮任务时是否采集 OK 按钮属性 EnableCollectWithoutDisplay，及相应的事件 PressedWithoutDisplay
+    2. Ptl.Device.XGate 提供更多只读属性，删除复杂的 StartUnicastCommandQueue 重载
+    3. Ptl.Device.XConverter 提供更多只读属性
+    4. Ptl.Device.XRelay 提供更多只读属性
+    5. 修复 F1 功能在保留文本时的外观跟踪
+
+1.6.0.3
+    1. Ptl.Device.InstallProject 类加入 XML 序列化相关方法 SerializeTo(string)，DeserializeFrom(string)
+    2. Ptl.Device.Log.LogLevel.Warning 拼写更正
+    3. Ptl.Device.IOPortCollection<T>.Items，RS485BusCollection.Items 加入 protected setter
+    4. Ptl.Device.PtlTera 加入可按灯索引控制的方法 Display(byte, LightColor)、Display(byte, LightMode) 和 Clear(byte)
+
+1.6.0.2
+    1. 最后一笔明细的 OK 按钮按下后保留的灯色 F1 功能扩展到文本保留
+
+1.6.0.1
+    1. 加入 Ptl.Device.Communication.CommunicationClientBase 和 Ptl.Device.Communication.ProtocolInterceptorRequestWrapDatas
+    2. 修复自定义 ILogger 在类型转换上的错误
+
+1.6.0.0
+    1. 为红外标签加入 红外距离灵敏度配置 F7InfraredDistanceSensitivity，OK 按钮可用性配置 F8OkUsability，红外时间灵敏度配置 F9InfraredTimeSensitivities
+    2. 为 Tera 设备加入显示、清除命令
+    3. 为 XGate 加入输入查询、输出口控制功能
+
+1.5.2.0
+    1. 可通过 Ptl.Device.EventThreadConfiguration 指定回调事件的线程模型
+
+1.5.1.0
+    1. 新增一组 900U 标签类型 P3x
+    2. 泛化协议拦截功能到所有通讯客户端，并为此将
+       Ptl.Device.Communication.IModbusClientInterceptor 改名为 IProtocolInterceptor，
+       Ptl.Device.Communication.ModbusClientInterceptorAdditionalDataEventArgs 改名为 ProtocolInterceptorResponseAdditionalDataEventArgs
+    3. 加入 TCP-RS232/485 透传通讯客户端 Ptl.Device.Communication.TcpTransparentClient
+    4. 加入 TCP 透传中继器 XRelay
+
+1.5.0.0
+    1. 新增设备 PtlDO10RFID
+    2. 中文 900U 可显示最多 4 个字符的 ASCII 行列码
+    3. F4 设置加入多个中文标签显示模式
+    4. 新增中文 600U 标签 Ptl600UType.Surface
+    5. 记录协议的执行结果到日志
+
+1.4.4.1
+    1. 为 ModbusClient 加入协议拦截器 IModbusClientInterceptor
+    2. F4 设置加入新值 行列码的位置用于显示数量 ExtendedCount = 2
+
+1.4.4.0
+    1. 加入 WifiXGateConfigExecutor 来配置无线 XGate
+
+1.4.3.0
+    1. 如果命令执行错误为通讯错误，则将其优先归类为网络错误而不是设备错误
+    2. LightMode 类加入 public static LightMode FromByte(byte) 方法
+    3. ModbusClient 和 SerialPortClient 类提供更多只读属性，如：ModbusClient.ConnectTimeout, SerialPortClient.BaudRate
+    4. 将 IXmlSerializable 的实现方法标记为 [EditorBrowsable(EditorBrowsableState.Never)]
+    5. 修正 SerialPortClient 组播协议的地址从 224 到 248
+
+1.4.2.0
+    1. 为 PtlDevice，XGate，IOPort 加入 Refresh() 方法
+    2. 修正 XConverter 调试时显示特性为 [DebuggerDisplay("{PortName}")]
+    3. 接受型如 0x00 的单字节条码，此类条码常见于扫描枪中途接上拔下时
+    4. 标记 Clear600UMode.All 为 [Obsolete]，此成员在 PtlIOPortWith600U.Ptl600U.Clear(Clear600UMode.All) 方法中表现特殊
+    5. 标记 Clear600UMode.FirstRow/SecondRow 为 [Obsolete]，这些成员在多款设备间表现不一致
+
+1.4.1.0
+    1. 修正 组播显示命令 中 单位 没有后补齐空格问题
+
+1.4.0.0
+    1. 彩屏标签显示时可通过 SurfaceBackground 指定背景
+
+1.3.2.0
+    1. PtlXIOPort 子类型影响输入输出口数
+    2. PtlIOPortWith600U.ResetCommunicationStatistics() 可重置其上 Ptl600U 的通讯统计
+
+1.3.1.0
+    1. 修正 XGate.DisplayLight(LightMode)/ClearLight()，以前只能与默认的 192.168.0.10 通讯
+    2. XGate 初始化方法默认使用 4 条总线
+
+1.3.0.0
+    1. DefaultTextFileLogger 默认目录从 PtlDeviceLog 改成 App_Data\PtlDeviceLog
+    2. PtlDevice.Address 设置值上限从 255 改成 247
+    3. 组播协议的地址从 224 改成 248
+    4. 优化组播实现
+    5. 使用地址 249 实现 XGate 的设置协议、亮灯协议、重启协议
+
+1.2.4.0
+    1. 使用 ModbusTcpTransactionIdGenerator 在 XGate 级别管理协议的事务编号
+
+1.2.3.0
+    1. 主次版本号和《Pick to light 命令汇总.xlsx》一致
+    2. 移动 HeartbeatGenerator 类到 Ptl.Device.Communication 命名空间
+    3. 完成 Ptl900U 组播命令的调试
+    4. 为 XConverter 和 SerialPortClient 加入帧间延时参数 InterframeDelay
+    5. 提高通讯统计的时间精度
+
+1.0.2.0
+    1. 通讯通道建立前的通讯失败不计入设备的通讯统计
+    2. 加入心跳协议和心跳发生器
+    3. Display900UItem 加入 Tag 属性
+    4. 将当前外观字段合并到对象，如 Ptl.Device.LighthouseAppearance
+    5. 提升协议限制信息从对象到类，如 Ptl.Device.Ptl900U.MaxBatchCodeLength
+    6. 不将运行时信息纳入 Xml 序列化，如 Ptl.Device.Scanner.EnableCollect
+    7. RS485Bus 加入 Ptl900U 的组播方法，此类方法需要新型 XGate 的支持（未调试）
+    8. DefaultRS485AddressMapperImplements 中映射表之外的地址原样返回
+
+1.0.1.0
+    1. 修正广播 F6 触摸灵敏度协议码
+    2. 修正 [CLSCompliant] 属性的使用
+    3. 降低命令队列的锁定时间，降低空队列轮询时 CPU 消耗
+    4. 将 ModbusClient 的重连等待时间设为连接超时时间，且针对相同 IP 的连接是排队的
+    5. PtlDevice.Address 设置值不可为 0
+    6. 实现设备外观更改事件 AppearanceChanged，为各设备加入当前外观属性
+    7. 为 停止单播队列执行 方法提供参数来指示 是否等待执行线程退出
+    8. 降低 XGate 广播配置协议执行客户端的通讯超时值
+
+1.0.0.0
+    1. 实现 Pick-to-light 全系现有产品类型的抽象
+    2. 实现现有设备的单播命令
+    3. 实现广播命令
+    4. 实现 XGate 的组播配置命令
+    5. 实现各级日志的文本记录

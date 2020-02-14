@@ -1,0 +1,3 @@
+13:35:36.892
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()

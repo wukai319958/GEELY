@@ -1,0 +1,20 @@
+﻿服务控制台
+
+
+winexe
+C#
+.cs
+E:\项目文件\工作项目\GeelyPro\宁波吉利汽车 PTL 小车\代码\GeelyPTL\obj\Debug\
+GeelyPTL
+none
+false
+DEBUG;TRACE
+E:\项目文件\工作项目\GeelyPro\宁波吉利汽车 PTL 小车\代码\GeelyPTL\App.xaml
+27-1872682371
+1136389483
+57783356598
+2644923753
+Dialogs\AssembleTaskItemsWindow.xaml;Dialogs\BatchAddCartWindow.xaml;Dialogs\SwitchCartWindow.xaml;Dialogs\CartEditWindow.xaml;Dialogs\CartMaterialsWindow.xaml;Dialogs\CartTaskItemsWindow.xaml;Dialogs\EmployeeAddOrEditWindow.xaml;Dialogs\FndTaskItemsWindow.xaml;Dialogs\LesTaskItemsWindow.xaml;Dialogs\SelectWorkStationlWindow.xaml;Dialogs\SelectInitChannelWindow.xaml;Dialogs\PalletTaskItemsWindow.xaml;MainWindow.xaml;MenuItemUserControl.xaml;UserControls\AssembleTasksUserControl.xaml;UserControls\CartsUserControl.xaml;UserControls\CartTasksUserControl.xaml;UserControls\ChannelsUserControl.xaml;UserControls\DistributeTasksUserControl.xaml;UserControls\EmployeesUserControl.xaml;UserControls\FindTasksUserControl.xaml;UserControls\LesTasksUserControl.xaml;UserControls\PalletTasksUserControl.xaml;UserControls\ServiceUserControl.xaml;UserControls\MarketUserControl.xaml;UserControls\WorkStationsUserControl.xaml;WindowControlBarUserControl.xaml;
+
+True
+

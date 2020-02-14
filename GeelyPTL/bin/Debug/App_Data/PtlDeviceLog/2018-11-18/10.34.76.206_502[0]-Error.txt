@@ -1,0 +1,13 @@
+09:03:59.302
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:05:06.734
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+09:44:12.201
+System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()
+12:14:21.188
+System.Net.Sockets.SocketException (0x80004005): 套接字操作尝试一个无法连接的主机。 10.34.76.206:502
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 Ptl.Device.Communication.ModbusClient.PhFfsd5v90()

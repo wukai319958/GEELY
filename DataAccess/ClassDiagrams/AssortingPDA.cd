@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataAccess.AssortingPDA.AST_LesTask_PDA">
+    <Position X="1" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACoICACAEAACAAEAAAAAEBQAQCIAAARQAAIAgIAAA=</HashCode>
+      <FileName>AssortingPDA\AST_LesTask_PDA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_LesTaskMessage_PDA" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_LesTaskItem_PDA">
+    <Position X="5.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAAAIAgAAAAAAAAEAAAAIAAAABAUEACAE=</HashCode>
+      <FileName>AssortingPDA\AST_LesTaskItem_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_LesTaskItem.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_LesTaskMessage_PDA">
+    <Position X="5.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAABAQAAAAA=</HashCode>
+      <FileName>AssortingPDA\AST_LesTaskMessage_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_LesTaskMessage.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletArrived_PDA">
+    <Position X="1.25" Y="12.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIICACAAAAAAAEAAQAAAAQAAAKAAAAAAAIAAAAAE=</HashCode>
+      <FileName>AssortingPDA\AST_PalletArrived_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_PalletArrived.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AST_PalletArrivedMessage_PDA" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletArrivedMessage_PDA">
+    <Position X="5.5" Y="13.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAA=</HashCode>
+      <FileName>AssortingPDA\AST_PalletArrivedMessage_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_PalletArrivedMessage.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletTask_PDA">
+    <Position X="1" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIICACAAAAAAAEAAAAAAAQAEIKAAAgAAAIAAAAAA=</HashCode>
+      <FileName>AssortingPDA\AST_PalletTask_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_PalletTask.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletTaskItem_PDA">
+    <Position X="5.5" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAACIAgABAAAABAEAoAAAASQAAAAmIAQE=</HashCode>
+      <FileName>AssortingPDA\AST_PalletTaskItem_PDA.cs</FileName>
+      <NewMemberFileName>Assorting\AST_PalletTaskItem.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletPickResult_PDA">
+    <Position X="1.25" Y="16.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAACECAAEAAAAAAAAAAAAAAAACAAAQAAAgAAAAAA=</HashCode>
+      <FileName>AssortingPDA\AST_PalletPickResult_PDA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.AssortingPDA.AST_PalletPickResultMessage_PDA">
+    <Position X="5.25" Y="16.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAgAAAAAAEAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssortingPDA\AST_PalletPickResultMessage_PDA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Interfaces.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Interfaces_PtlToLes_PtlToLesServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.21.152.122:1838/Service/PtlToLesService</Value>
+    </Setting>
+    <Setting Name="Interfaces_PtlToMes_ToMesRemoteServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8071/mes-interface/remote/toMes</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

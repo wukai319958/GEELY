@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="GeelyPTL.UserControls.DistributeTasksUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:localConverters="clr-namespace:GeelyPTL.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="550"
+             d:DesignWidth="1000"
+             Background="White"
+             Initialized="UserControl_Initialized">
+
+    <UserControl.Resources>
+        <localConverters:ReqTypeToTextConverter x:Key="reqTypeToTextConverter"/>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+            <TextBlock Text="任务生成日期:" VerticalAlignment="Center"/>
+            <xctk:DateTimePicker x:Name="datePickerMin" VerticalAlignment="Center" Format="ShortDate"/>
+            <TextBlock Text="-" VerticalAlignment="Center"/>
+            <xctk:DateTimePicker x:Name="datePickerMax" VerticalAlignment="Center" Format="ShortDate"/>
+            <Button x:Name="buttonToday"
+                    Content="今天"
+                    Width="40"
+                    Height="25"
+                    Click="buttonToday_Click"/>
+            <TextBlock Text="配送任务类型:" Margin="2,0,0,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbReqType" Width="120" VerticalAlignment="Center" Height="25">
+                <ComboBoxItem Content="" Width="120"/>
+                <ComboBoxItem Content="拣料区铺线" Width="120"/>
+                <ComboBoxItem Content="生产线边铺线" Width="120"/>
+                <ComboBoxItem Content="拣料区配送" Width="120"/>
+                <ComboBoxItem Content="物料超市配送" Width="120"/>
+                <ComboBoxItem Content="空料架缓冲区配送" Width="120"/>
+                <ComboBoxItem Content="生产线边料架转换" Width="120"/>
+                <ComboBoxItem Content="生产线边空料架返回" Width="120"/>
+                <ComboBoxItem Content="生产线边外侧到里侧" Width="120"/>
+                <ComboBoxItem Content="生产线边里侧到外侧" Width="120"/>
+                <ComboBoxItem Content="绑定货架" Width="120"/>
+                <ComboBoxItem Content="解绑货架" Width="120"/>
+                <ComboBoxItem Content="点对点配送" Width="120"/>
+            </ComboBox>
+            <TextBlock Text="是否响应:" Margin="2,0,0,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbIsResponse" Width="50" VerticalAlignment="Center" Height="25">
+                <ComboBoxItem Content="" Width="50"/>
+                <ComboBoxItem Content="是" Width="50"/>
+                <ComboBoxItem Content="否" Width="50"/>
+            </ComboBox>
+            <TextBlock Text="是否到达:" Margin="2,0,0,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbIsArrive" Width="50" VerticalAlignment="Center" Height="25">
+                <ComboBoxItem Content="" Width="50"/>
+                <ComboBoxItem Content="是" Width="50"/>
+                <ComboBoxItem Content="否" Width="50"/>
+            </ComboBox>
+            <TextBlock Text="发送方式:" Margin="2,0,0,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbSendType" Width="60" VerticalAlignment="Center" Height="25">
+                <ComboBoxItem Content="" Width="60"/>
+                <ComboBoxItem Content="自动" Width="60"/>
+                <ComboBoxItem Content="手动" Width="60"/>
+            </ComboBox>
+            <Button x:Name="btnSearch" Content="查询" Margin="5,0,0,0" Width="50" Height="30" Click="btnSearch_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Button x:Name="btnReSendTask"
+                    Content="配送任务重发"
+                    Width="80"
+                    Height="30" Click="btnReSendTask_Click"/>
+            <Button x:Name="btnStopTask"
+                    Content="结束配送任务"
+                    Width="80"
+                    Height="30"
+                    Margin="5,0,0,0" Click="btnStopTask_Click"/>
+        </StackPanel>
+        
+        <DataGrid x:Name="dataGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  ColumnHeaderHeight="30"
+                  RowHeight="30"
+                  RowHeaderWidth="50"
+                  GridLinesVisibility="None"
+                  AlternatingRowBackground="AliceBlue"
+                  IsReadOnly="True"
+                  LoadingRow="dataGrid_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn  IsReadOnly="False">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="CheckAll" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="{Binding}" Click="CheckAll_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="cb" HorizontalAlignment="Center" Tag="{Binding}" IsChecked="{Binding IsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Click="cb_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding reqCode}"
+                                    Header="请求编号"
+                                    Width="120"/>
+                <DataGridTextColumn Binding="{Binding reqTime, StringFormat='yyyy-MM-dd HH:mm:ss'}"
+                                    Header="请求时间"
+                                    Width="140"/>
+                <DataGridTextColumn Binding="{Binding DistributeReqTypes, Converter={StaticResource reqTypeToTextConverter}}"
+                                    Header="配送任务类型"
+                                    Width="120"/>
+                <DataGridCheckBoxColumn Binding="{Binding isResponse}"
+                                    Header="是否响应"
+                                    Width="80"/>
+                <DataGridTextColumn Binding="{Binding taskTyp}"
+                                    Header="任务类型"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding startPosition}"
+                                    Header="起始位置"
+                                    Width="110"/>
+                <DataGridTextColumn Binding="{Binding endPosition}"
+                                    Header="目标位置"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding podCode}"
+                                    Header="料架编号"
+                                    Width="80"/>
+                <DataGridTextColumn Binding="{Binding podDir}"
+                                    Header="发送方式"
+                                    Width="60"/>
+                <DataGridTextColumn Binding="{Binding sendErrorCount}"
+                                    Header="发送错误次数"
+                                    Width="85"/>
+                <DataGridTextColumn Binding="{Binding arriveTime, StringFormat='yyyy-MM-dd HH:mm:ss'}"
+                                    Header="配送到达时间"
+                                    Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

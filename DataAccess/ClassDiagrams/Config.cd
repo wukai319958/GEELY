@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataAccess.Config.CFG_Cart">
+    <Position X="10" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAiAAAAAAAAQEACBAAhEAQAAAEwIAIQACAiAAAAAAA=</HashCode>
+      <FileName>Config\CFG_Cart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CartStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="CFG_CartPtlDevices" />
+      <Property Name="CFG_CartCurrentMaterials" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_CartPtlDevice">
+    <Position X="14.75" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQAAAAIEAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Config\CFG_CartPtlDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_Channel">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QQAiAAAQAAAAAEAABAAgAAQAAAIgAAAAAEAAAAAACAA=</HashCode>
+      <FileName>Config\CFG_Channel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CFG_ChannelCurrentPallet" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="CFG_ChannelPtlDevices" />
+      <Property Name="CFG_ChannelCurrentCarts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_ChannelPtlDevice">
+    <Position X="5.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIIAACAAAAAEgAAAAEAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Config\CFG_ChannelPtlDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_WorkStation">
+    <Position X="18.75" Y="14.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAiAIAQAAAAQAAABAAgAAyAAAAgIAAAAAACAAAAAAA=</HashCode>
+      <FileName>Config\CFG_WorkStation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_Employee">
+    <Position X="10" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QEACAIAAAAAAAAAABAEgAAQAAAAAIAACAAAgAAAAAAA=</HashCode>
+      <FileName>Config\CFG_Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_CartCurrentMaterial">
+    <Position X="14.75" Y="14.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIICCDAAABCAhkAAIAAABQEAAIAAAQAACoAkAAQA=</HashCode>
+      <FileName>Config\CFG_CartCurrentMaterial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CFG_WorkStation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_ChannelCurrentPallet">
+    <Position X="5.25" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIICAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Config\CFG_ChannelCurrentPallet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CFG_Pallet" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_Pallet">
+    <Position X="10" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAQAAAAAAAQAAAgAAAAAAIhAAAABEAAAAAAAAA=</HashCode>
+      <FileName>Config\CFG_Pallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_ChannelCurrentCart">
+    <Position X="5.25" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIIAAAAAAAAAgAAAIAAAAAAAAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>Config\CFG_ChannelCurrentCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CFG_Cart" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Config.CFG_MarketWorkStationCurrentCart">
+    <Position X="10" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAIAAABAAAAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>Config\CFG_MarketWorkStationCurrentCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CFG_WorkStation" />
+      <Property Name="CFG_Cart" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="DataAccess.Config.CartStatus">
+    <Position X="14.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAIAAIACcAKAAAAAAAAAAAAAAAAAAFAI=</HashCode>
+      <FileName>Config\CartStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

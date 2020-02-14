@@ -1,0 +1,131 @@
+﻿<Window x:Class="GeelyPTL.Dialogs.CartMaterialsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="料车上的物料"
+        Height="Auto"
+        Width="900"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="料车："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBlockCartName"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="项目："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxProjectCode"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="3"
+                       Text="阶段："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxProjectStep"
+                     Grid.Row="1"
+                     Grid.Column="4"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="2"
+                       Text="批次："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxBatchCode"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="3"
+                       Text="工位："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxWorkStationCode"
+                     Grid.Row="2"
+                     Grid.Column="4"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="3"
+                       Text="分拣口："
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxChannelName"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+        </Grid>
+
+        <DataGrid x:Name="dataGrid"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  ColumnHeaderHeight="30"
+                  RowHeight="30"
+                  RowHeaderWidth="0"
+                  GridLinesVisibility="None"
+                  AlternatingRowBackground="AliceBlue"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Position}"
+                                    Header="料车库位"/>
+                <DataGridTextColumn Binding="{Binding CFG_Pallet.Code}"
+                                    Header="托盘"
+                                    Width="60"/>
+                <DataGridTextColumn Binding="{Binding FromPalletPosition}"
+                                    Header="托盘库位"/>
+                <DataGridTextColumn Binding="{Binding BoxCode}"
+                                    Header="料箱条码"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding MaterialCode}"
+                                    Header="物料编码"
+                                    Width="80"/>
+                <DataGridTextColumn Binding="{Binding MaterialName}"
+                                    Header="物料名称"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding MaterialBarcode}"
+                                    Header="物料条码"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding Quantity}"
+                                    Header="数量"/>
+                <DataGridTextColumn Binding="{Binding AssortedTime, StringFormat='yyyy-MM-dd HH:mm:ss'}"
+                                    Header="分拣时间"
+                                    Width="130"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="3"
+                Content="关闭(_C)"
+                Width="80"
+                Height="30"
+                IsCancel="True"/>
+    </Grid>
+</Window>

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ForCartFindingClientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgEmployeeLoginNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgEmployeeLoginNames" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgEmployeeLoginNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgEmployeeLoginNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgChannels" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgWorkStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgWorkStations" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgWorkStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgWorkStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCfgCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCfgCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryFndTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFndTasks" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryFndTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFndTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_FindCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_FindCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DepartCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DepartCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DockCartToChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:DockCartToChannel" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DockCartToChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DockCartToChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_UnDockCartFromChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnDockCartFromChannel" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_UnDockCartFromChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnDockCartFromChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_BindCartRfid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindCartRfid" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_BindCartRfid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindCartRfidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCurrentTaskInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCurrentTaskInfo" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_QueryCurrentTaskInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryCurrentTaskInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TryRaisePtl900UAssortingPressed_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryRaisePtl900UAssortingPressed" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TryRaisePtl900UAssortingPressed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryRaisePtl900UAssortingPressedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TryRaisePtlPublisherAssortingPressed_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryRaisePtlPublisherAssortingPressed" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TryRaisePtlPublisherAssortingPressed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryRaisePtlPublisherAssortingPressedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TestMethod_ClearCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestMethod_ClearCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_TestMethod_ClearCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestMethod_ClearCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DockCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DockCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_DockCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DockCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_UnDockCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnDockCart" />
+  </wsdl:message>
+  <wsdl:message name="IForCartFindingClientService_UnDockCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnDockCartResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IForCartFindingClientService">
+    <wsdl:operation name="QueryCfgEmployeeLoginNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgEmployeeLoginNames" message="tns:IForCartFindingClientService_QueryCfgEmployeeLoginNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgEmployeeLoginNamesResponse" message="tns:IForCartFindingClientService_QueryCfgEmployeeLoginNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgChannels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgChannels" message="tns:IForCartFindingClientService_QueryCfgChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgChannelsResponse" message="tns:IForCartFindingClientService_QueryCfgChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgWorkStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgWorkStations" message="tns:IForCartFindingClientService_QueryCfgWorkStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgWorkStationsResponse" message="tns:IForCartFindingClientService_QueryCfgWorkStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgCart" message="tns:IForCartFindingClientService_QueryCfgCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCfgCartResponse" message="tns:IForCartFindingClientService_QueryCfgCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/Login" message="tns:IForCartFindingClientService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/LoginResponse" message="tns:IForCartFindingClientService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryFndTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryFndTasks" message="tns:IForCartFindingClientService_QueryFndTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryFndTasksResponse" message="tns:IForCartFindingClientService_QueryFndTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/FindCart" message="tns:IForCartFindingClientService_FindCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/FindCartResponse" message="tns:IForCartFindingClientService_FindCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/DepartCart" message="tns:IForCartFindingClientService_DepartCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/DepartCartResponse" message="tns:IForCartFindingClientService_DepartCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DockCartToChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/DockCartToChannel" message="tns:IForCartFindingClientService_DockCartToChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/DockCartToChannelResponse" message="tns:IForCartFindingClientService_DockCartToChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnDockCartFromChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/UnDockCartFromChannel" message="tns:IForCartFindingClientService_UnDockCartFromChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/UnDockCartFromChannelResponse" message="tns:IForCartFindingClientService_UnDockCartFromChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindCartRfid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/BindCartRfid" message="tns:IForCartFindingClientService_BindCartRfid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/BindCartRfidResponse" message="tns:IForCartFindingClientService_BindCartRfid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCurrentTaskInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCurrentTaskInfo" message="tns:IForCartFindingClientService_QueryCurrentTaskInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/QueryCurrentTaskInfoResponse" message="tns:IForCartFindingClientService_QueryCurrentTaskInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryRaisePtl900UAssortingPressed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/TryRaisePtl900UAssortingPressed" message="tns:IForCartFindingClientService_TryRaisePtl900UAssortingPressed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/TryRaisePtl900UAssortingPressedResponse" message="tns:IForCartFindingClientService_TryRaisePtl900UAssortingPressed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryRaisePtlPublisherAssortingPressed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/TryRaisePtlPublisherAssortingPressed" message="tns:IForCartFindingClientService_TryRaisePtlPublisherAssortingPressed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/TryRaisePtlPublisherAssortingPressedResponse" message="tns:IForCartFindingClientService_TryRaisePtlPublisherAssortingPressed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMethod_ClearCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/TestMethod_ClearCart" message="tns:IForCartFindingClientService_TestMethod_ClearCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/TestMethod_ClearCartResponse" message="tns:IForCartFindingClientService_TestMethod_ClearCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DockCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/DockCart" message="tns:IForCartFindingClientService_DockCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/DockCartResponse" message="tns:IForCartFindingClientService_DockCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnDockCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IForCartFindingClientService/UnDockCart" message="tns:IForCartFindingClientService_UnDockCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IForCartFindingClientService/UnDockCartResponse" message="tns:IForCartFindingClientService_UnDockCart_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IForCartFindingClientService" type="tns:IForCartFindingClientService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryCfgEmployeeLoginNames">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryCfgEmployeeLoginNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgChannels">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryCfgChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgWorkStations">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryCfgWorkStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCfgCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryCfgCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryFndTasks">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryFndTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/FindCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/DepartCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DockCartToChannel">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/DockCartToChannel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnDockCartFromChannel">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/UnDockCartFromChannel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindCartRfid">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/BindCartRfid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCurrentTaskInfo">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/QueryCurrentTaskInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryRaisePtl900UAssortingPressed">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/TryRaisePtl900UAssortingPressed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryRaisePtlPublisherAssortingPressed">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/TryRaisePtlPublisherAssortingPressed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMethod_ClearCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/TestMethod_ClearCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DockCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/DockCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnDockCart">
+      <soap:operation soapAction="http://tempuri.org/IForCartFindingClientService/UnDockCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ForCartFindingClientService">
+    <wsdl:port name="BasicHttpBinding_IForCartFindingClientService" binding="tns:BasicHttpBinding_IForCartFindingClientService">
+      <soap:address location="http://localhost:5980/ForCartFindingClientService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

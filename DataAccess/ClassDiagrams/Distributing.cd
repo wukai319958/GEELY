@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataAccess.Distributing.DST_DistributeTask">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAEABgAAQAgBAAAAAAECAgEAAAAAEAwQAQQAAAAAw=</HashCode>
+      <FileName>Distributing\DST_DistributeTask.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DistributeReqTypes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Distributing.DST_DistributeTaskResult">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAAAAAAAgAAAAAAAAAAAIAAAAAAAAAAQAAAAACA=</HashCode>
+      <FileName>Distributing\DST_DistributeTaskResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Distributing.DST_DistributeArriveTask">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAEAAgAAAAgCAAAAAAAAAAAAAAAAAAgAAYAAAAAAA=</HashCode>
+      <FileName>Distributing\DST_DistributeArriveTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Distributing.DST_DistributeArriveTaskResult">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAgAAAAAAAAAAAIAAAAAAAAAAQAAAAECA=</HashCode>
+      <FileName>Distributing\DST_DistributeArriveTaskResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess.Distributing.DST_DistributeArriveResult">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAAAAAAAgBAAAAAAECAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Distributing\DST_DistributeArriveResult.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DistributeReqTypes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataAccess.Distributing.DST_AgvSwitch">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACgAAAAAAAAAAAAAAAAAAgAAAAACAAAAA=</HashCode>
+      <FileName>Distributing\DST_AgvSwitch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DataAccess.Distributing.DistributeReqTypes">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgAAAAAAAIAAAAAAwAAAAAAAAAAAAAIAAAAAAFQAAA=</HashCode>
+      <FileName>Distributing\DistributeReqTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

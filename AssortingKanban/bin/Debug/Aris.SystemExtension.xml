@@ -1,0 +1,1368 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aris.SystemExtension</name>
+    </assembly>
+    <members>
+        <member name="T:Aris.SystemExtension.AsyncResult`1">
+            <summary>
+            封装简单通用的异步结果。
+            </summary>
+            <typeparam name="TResult">结果完成时的返回值类型。</typeparam>
+        </member>
+        <member name="M:Aris.SystemExtension.AsyncResult`1.#ctor(System.AsyncCallback,System.Object)">
+            <summary>
+            初始化异步结果。
+            </summary>
+            <param name="asyncCallback">结果完成时的回调。</param>
+            <param name="state">用户定义的对象。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.AsyncResult`1.SetCompletedByCancel">
+            <summary>
+            取消等待。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.AsyncResult`1.SetCompletedByCancel(System.String)">
+            <summary>
+            取消等待。
+            </summary>
+            <param name="reason">取消的原因。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.AsyncResult`1.SetCompleted(`0)">
+            <summary>
+            完成等待。
+            </summary>
+            <param name="result">结果值。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.AsyncResult`1.SetCompleted(`0,System.Exception)">
+            <summary>
+            完成等待。
+            </summary>
+            <param name="result">结果值。</param>
+            <param name="exception">出错信息。</param>
+            <exception cref="T:System.InvalidOperationException">尝试重复完成。</exception>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.AsyncState">
+            <summary>
+            获取用户定义的对象，它限定或包含关于异步操作的信息。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.StartTime">
+            <summary>
+            获取等待开始时间。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.Result">
+            <summary>
+            获取等待的结果。
+            </summary>
+            <remarks>如果异步操作未完成，则一直等待；如果异步操作有错，则抛出错误。</remarks>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.Canceled">
+            <summary>
+            获取异步操作是否取消。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.CancelReason">
+            <summary>
+            获取异步操作取消的原因。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.AsyncWaitHandle">
+            <summary>
+            获取用于等待异步操作完成的 System.Threading.WaitHandle。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.CompletedSynchronously">
+            <summary>
+            获取异步操作是否同步完成。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.AsyncResult`1.IsCompleted">
+            <summary>
+            获取异步操作是否已完成。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.ComponentModel.ObservableObject">
+            <summary>
+            实现 INotifyPropertyChanging 和 INotifyPropertyChanged。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.OnPropertyChanging(System.String)">
+            <summary>
+            引发 PropertyChanging 事件。
+            </summary>
+            <param name="propertyName">属性名。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.OnPropertyChanging``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            引发 PropertyChanging 事件。
+            </summary>
+            <typeparam name="T">属性的类型。</typeparam>
+            <param name="propertyExpression">属性获取表达式。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.OnPropertyChanged(System.String)">
+            <summary>
+            引发 PropertyChanged 事件。
+            </summary>
+            <param name="propertyName">属性名。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.OnPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            引发 PropertyChanged 事件。
+            </summary>
+            <typeparam name="T">属性的类型。</typeparam>
+            <param name="propertyExpression">属性获取表达式。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.SetProperty``1(System.String,``0@,``0)">
+            <summary>
+            设置属性值，可引发属性值更改事件。
+            </summary>
+            <typeparam name="T">属性的类型。</typeparam>
+            <param name="propertyName">属性名。</param>
+            <param name="field">属性值的存储字段。</param>
+            <param name="newValue">新值。</param>
+            <returns>是否有更改。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.ComponentModel.ObservableObject.SetProperty``1(System.Linq.Expressions.Expression{System.Func{``0}},``0@,``0)">
+            <summary>
+            设置属性值，可引发属性值更改事件。
+            </summary>
+            <typeparam name="T">属性的类型。</typeparam>
+            <param name="propertyExpression">属性获取表达式。</param>
+            <param name="field">属性值的存储字段。</param>
+            <param name="newValue">新值。</param>
+            <returns>是否有更改。</returns>
+        </member>
+        <member name="E:Aris.SystemExtension.ComponentModel.ObservableObject.PropertyChanging">
+            <summary>
+            在属性值即将更改时发生。
+            </summary>
+        </member>
+        <member name="E:Aris.SystemExtension.ComponentModel.ObservableObject.PropertyChanged">
+            <summary>
+            在属性值更改成功时发生。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Database">
+            <summary>
+            提供对数据库的访问。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.#ctor(System.String,System.String)">
+            <summary>
+            使用数据库提供工厂名称和连接字符串初始化一个数据库实例。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.#ctor(System.Data.Common.DbProviderFactory,System.String)">
+            <summary>
+            使用数据库提供工厂和连接字符串初始化一个数据库实例。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.CreateConnection">
+            <summary>
+            创建一个新的数据库链接。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.GetNewOrTransactionConnection(System.Data.Common.DbTransaction,System.Boolean@)">
+            <summary>
+            获取新连接或事务中的本库连接。
+            </summary>
+            <param name="nullableTransaction">可为空的事务。</param>
+            <param name="isTransactionConnection">是否是事务连接，决定着何时关闭。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.GetCurrentTransactionConnection">
+            <summary>
+            获取当前事务中的本库连接。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.currentTransaction_TransactionCompleted(System.Object,System.Transactions.TransactionEventArgs)">
+            <summary>
+            事务完成时关闭本库连接并从字典移出。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteNonQuery(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行无返回值的命令。
+            </summary>
+            <returns>受影响的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行无返回值的命令。
+            </summary>
+            <returns>受影响的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteNonQuery(System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行无返回值的命令。
+            </summary>
+            <returns>受影响的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteNonQuery(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行无返回值的命令。
+            </summary>
+            <returns>受影响的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.Data.CommandBehavior,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteReader(System.Data.Common.DbTransaction,System.Data.CommandBehavior,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据阅读器的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteScalar(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回单个值的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteScalar(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回单个值的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteScalar(System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回单个值的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.ExecuteScalar(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回单个值的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据表的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据表的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据表的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据表的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.DataTable,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据表的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.DataTable,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据表的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.DataTable,System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据表的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataTable(System.Data.DataTable,System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据表的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据集的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据集的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据集的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行返回一个数据集的命令。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.DataSet,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据集的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.DataSet,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据集的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.DataSet,System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据集的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.FillDataSet(System.Data.DataSet,System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行填充一个数据集的命令。
+            </summary>
+            <returns>成功添加或刷新的行数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Database.BuildCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            创建命令并打开连接。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Database.ProviderFactory">
+            <summary>
+            获取数据库提供工厂。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Database.ConnectionString">
+            <summary>
+            获取连接字符串。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor">
+            <summary>
+            WCF Data Service 发起的数据库命令的拦截器。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.NonQueryExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Int32})">
+            <summary>
+            在执行无返回值命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.NonQueryExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Int32})">
+            <summary>
+            在执行无返回值命令后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.ScalarExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Object})">
+            <summary>
+            在执行返回标量的命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.ScalarExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Object})">
+            <summary>
+            在执行返回标量的命令后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.ReaderExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Data.Common.DbDataReader})">
+            <summary>
+            在执行返回数据读取器的命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DataServiceDbCommandInterceptor.ReaderExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Data.Common.DbDataReader})">
+            <summary>
+            在执行返回数据读取器的命令后发生。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics">
+            <summary>
+            数据库命令的执行统计。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.#ctor">
+            <summary>
+            初始化执行统计信息。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.AddSuccessful(System.Data.StatementType,System.TimeSpan)">
+            <summary>
+            添加统计信息。
+            </summary>
+            <param name="statementType">语句类型。</param>
+            <param name="span">耗时。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.AddSuccessful(System.Data.StatementType,System.Int32)">
+            <summary>
+            添加统计信息。
+            </summary>
+            <param name="statementType">语句类型。</param>
+            <param name="milliseconds">耗时。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.AddFailed(System.TimeSpan)">
+            <summary>
+            添加失败的统计信息。
+            </summary>
+            <param name="span">耗时。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.AddFailed(System.Int32)">
+            <summary>
+            添加失败的统计信息。
+            </summary>
+            <param name="milliseconds">耗时。</param>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.SelectCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的查询次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.InsertCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的插入次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.UpdateCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的修改次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.DeleteCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的删除次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.BatchCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的批处理次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.FailedCountBySortedMilliseconds">
+            <summary>
+            获取按耗时分组的失败次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.SelectCount">
+            <summary>
+            获取成功执行的查询次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.InsertCount">
+            <summary>
+            获取成功执行的插入次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.UpdateCount">
+            <summary>
+            获取成功执行的修改次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.DeleteCount">
+            <summary>
+            获取成功执行的删除次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.BatchCount">
+            <summary>
+            获取成功执行的批处理次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.FailedCount">
+            <summary>
+            获取执行失败的次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.TotalCount">
+            <summary>
+            获取总执行次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.SelectCountPerSecond">
+            <summary>
+            获取每秒查询次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.InsertCountPerSecond">
+            <summary>
+            获取每秒插入次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.UpdateCountPerSecond">
+            <summary>
+            获取每秒修改次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.DeleteCountPerSecond">
+            <summary>
+            获取每秒删除次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.BatchCountPerSecond">
+            <summary>
+            获取每秒批处理次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.MaxSelectCountPerSecond">
+            <summary>
+            获取每秒最大查询次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.MaxInsertCountPerSecond">
+            <summary>
+            获取每秒最大插入次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.MaxUpdateCountPerSecond">
+            <summary>
+            获取每秒最大修改次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.MaxDeleteCountPerSecond">
+            <summary>
+            获取每秒最大删除次数。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics.MaxBatchCountPerSecond">
+            <summary>
+            获取每秒最大批处理次数。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics">
+            <summary>
+            数据库连接的统计信息。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics.IncrementCount">
+            <summary>
+            递增当前连接数。
+            </summary>
+            <returns>递增后的连接数。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics.DecrementCount">
+            <summary>
+            递减当前连接数。
+            </summary>
+            <returns>递减后的连接数。</returns>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics.DataSource">
+            <summary>
+            获取或设置数据源。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics.Database">
+            <summary>
+            获取或设置数据库名称。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics.Count">
+            <summary>
+            获取当前连接数。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor">
+            <summary>
+            数据库命令的性能拦截器。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.#ctor">
+            <summary>
+            初始化性能拦截器。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.#ctor(Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbCommandStatistics)">
+            <summary>
+            使用指定的统计信息初始化性能拦截器。
+            </summary>
+            <param name="statistics">性能统计信息。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.NonQueryExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Int32})">
+            <summary>
+            在执行无返回值命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.NonQueryExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Int32})">
+            <summary>
+            在执行无返回值命令后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.ScalarExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Object})">
+            <summary>
+            在执行返回标量的命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.ScalarExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Object})">
+            <summary>
+            在执行返回标量的命令后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.ReaderExecuting(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Data.Common.DbDataReader})">
+            <summary>
+            在执行返回数据读取器的命令前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.ReaderExecuted(System.Data.Common.DbCommand,System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext{System.Data.Common.DbDataReader})">
+            <summary>
+            在执行返回数据读取器的命令后发生。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbCommandInterceptor.Statistics">
+            <summary>
+            获取性能统计信息。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor">
+            <summary>
+            数据库连接的性能拦截器。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.#ctor">
+            <summary>
+            初始化性能拦截器。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.#ctor(Aris.SystemExtension.Data.Entity.Infrastructure.Interception.DbConnectionStatistics)">
+            <summary>
+            使用指定的统计信息初始化性能拦截器。
+            </summary>
+            <param name="statistics">特定数据库的性能统计信息。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.BeginningTransaction(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.BeginTransactionInterceptionContext)">
+            <summary>
+            在启动事务前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.BeganTransaction(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.BeginTransactionInterceptionContext)">
+            <summary>
+            在启动事务后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.EnlistingTransaction(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.EnlistTransactionInterceptionContext)">
+            <summary>
+            在加入事务前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.EnlistedTransaction(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.EnlistTransactionInterceptionContext)">
+            <summary>
+            在加入事务后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionStringGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取连接字符串前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionStringGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取连接字符串后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionTimeoutGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.Int32})">
+            <summary>
+            在获取连接超时前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionTimeoutGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.Int32})">
+            <summary>
+            在获取连接超时后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.DataSourceGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取数据源前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.DataSourceGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取数据源后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.DatabaseGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取数据库名称前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.DatabaseGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取数据库名称后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ServerVersionGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取服务器版本前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ServerVersionGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.String})">
+            <summary>
+            在获取服务器版本后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.StateGetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.Data.ConnectionState})">
+            <summary>
+            在获取连接状态前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.StateGot(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext{System.Data.ConnectionState})">
+            <summary>
+            在获取连接状态后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionStringSetting(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionPropertyInterceptionContext{System.String})">
+            <summary>
+            在设置连接字符串前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.ConnectionStringSet(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionPropertyInterceptionContext{System.String})">
+            <summary>
+            在设置连接字符串后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Opening(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在打开连接前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Opened(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在打开连接后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Closing(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在关闭连接前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Closed(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在关闭连接后发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Disposing(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在释放连接前发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Disposed(System.Data.Common.DbConnection,System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext)">
+            <summary>
+            在释放连接后发生。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Data.Entity.Infrastructure.Interception.PerformanceCounterDbConnectionInterceptor.Statistics">
+            <summary>
+            获取性能统计信息。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Diagnostics.LogLevel">
+            <summary>
+            日志的级别。
+            </summary>
+        </member>
+        <member name="F:Aris.SystemExtension.Diagnostics.LogLevel.Debug">
+            <summary>
+            调试信息。
+            </summary>
+        </member>
+        <member name="F:Aris.SystemExtension.Diagnostics.LogLevel.Information">
+            <summary>
+            普通信息。
+            </summary>
+        </member>
+        <member name="F:Aris.SystemExtension.Diagnostics.LogLevel.Warning">
+            <summary>
+            警告。
+            </summary>
+        </member>
+        <member name="F:Aris.SystemExtension.Diagnostics.LogLevel.Error">
+            <summary>
+            错误。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.EventArgs`1">
+            <summary>
+            携带一个值的事件参数。
+            </summary>
+            <typeparam name="T">事件参数值的类型。</typeparam>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`1.#ctor">
+            <summary>
+            初始化默认的事件参数。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`1.#ctor(`0)">
+            <summary>
+            使用指定的值初始化事件参数。
+            </summary>
+            <param name="value">事件参数的值。</param>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`1.Value">
+            <summary>
+            获取或设置事件参数值。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.EventArgs`2">
+            <summary>
+            携带两个值的事件参数。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`2.#ctor">
+            <summary>
+            初始化默认的事件参数。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`2.#ctor(`0,`1)">
+            <summary>
+            使用指定的值初始化事件参数。
+            </summary>
+            <param name="value1">第一个事件参数的值。</param>
+            <param name="value2">第二个事件参数的值。</param>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`2.Value1">
+            <summary>
+            获取或设置第一个事件参数值。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`2.Value2">
+            <summary>
+            获取或设置第二个事件参数值。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.EventArgs`3">
+            <summary>
+            携带三个值的事件参数。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`3.#ctor">
+            <summary>
+            初始化默认的事件参数。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.EventArgs`3.#ctor(`0,`1,`2)">
+            <summary>
+            使用指定的值初始化事件参数。
+            </summary>
+            <param name="value1">第一个事件参数的值。</param>
+            <param name="value2">第二个事件参数的值。</param>
+            <param name="value3">第三个事件参数的值。</param>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`3.Value1">
+            <summary>
+            获取或设置第一个事件参数值。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`3.Value2">
+            <summary>
+            获取或设置第二个事件参数值。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.EventArgs`3.Value3">
+            <summary>
+            获取或设置第三个事件参数值。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.ExceptionConvert">
+            <summary>
+            提供异常到文本的转换。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.ExceptionConvert.GetOriginalMessage(System.Exception)">
+            <summary>
+            获得指定异常的最原始内部异常的信息。
+            </summary>
+            <param name="ex">指定的异常。</param>
+            <returns>最原始内部异常的信息。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.ExceptionConvert.GetMessages(System.Exception)">
+            <summary>
+            获取指定异常及其各级内部异常的信息，在不暴露堆栈的情况下给出详细信息。
+            </summary>
+            <param name="ex">指定的异常。</param>
+            <returns>异常及其各级内部异常的信息。</returns>
+        </member>
+        <member name="T:Aris.SystemExtension.Microsoft.Win32.Registry">
+            <summary>
+            提供注册表的常见操作。
+            </summary>
+        </member>
+        <member name="F:Aris.SystemExtension.Microsoft.Win32.Registry.RegistryKey_AutoRun">
+            <summary>
+            操作系统启动项的键。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Microsoft.Win32.Registry.IsAutoRun">
+            <summary>
+            判断当前程序是否自动启动。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Microsoft.Win32.Registry.IsAutoRun(System.String)">
+            <summary>
+            判断指定条目是否自动启动。
+            </summary>
+            <param name="entryName">启动项名称。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Microsoft.Win32.Registry.SaveAutoRun(System.Boolean)">
+            <summary>
+            保存当前程序的自动启动配置。
+            </summary>
+            <param name="autoRun">是否自动启动。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Microsoft.Win32.Registry.SaveAutoRun(System.String,System.String,System.Boolean)">
+            <summary>
+            保存指定程序的自动启动配置。
+            </summary>
+            <param name="entryName">启动项名称。</param>
+            <param name="executableFilePath">启动的程序路径。</param>
+            <param name="autoRun">是否自动启动。</param>
+        </member>
+        <member name="T:Aris.SystemExtension.Pair`2">
+            <summary>
+            表示成对的数据。
+            </summary>
+            <typeparam name="T1">元素 1 的类型。</typeparam>
+            <typeparam name="T2">元素 2 的类型。</typeparam>
+        </member>
+        <member name="P:Aris.SystemExtension.Pair`2.Item1">
+            <summary>
+            获取或设置元素 1。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Pair`2.Item2">
+            <summary>
+            获取或设置元素 2。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Properties.Resources.AsyncResultAlreadyCompleted">
+            <summary>
+              查找类似 异步结果已经完成。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Properties.Resources.PropertyExpressionBodyIsNotAMebmerExpression">
+            <summary>
+              查找类似 属性获取表达式的主体不是成员获取表达式 MemberExpression。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Properties.Resources.PropertyExpressonBodyMemberIsNotAProperty">
+            <summary>
+              查找类似 属性获取表达式的主体是成员获取表达式但成员不是属性。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Reflection.PropertyNameFinder">
+            <summary>
+            属性名发现者。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Reflection.PropertyNameFinder.GetPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            通过属性获取表达式取得属性名。
+            </summary>
+            <typeparam name="T">属性的类型。</typeparam>
+            <param name="propertyExpression">属性获取表达式。</param>
+            <returns>属性名。</returns>
+            <exception cref="T:System.ArgumentNullException">propertyExpression 为空。</exception>
+            <exception cref="T:System.ArgumentException">propertyExpression 不是有效的属性获取表达式。</exception>
+        </member>
+        <member name="T:Aris.SystemExtension.Security.Cryptography.X509">
+            <summary>
+            提供对 X.509 证书的常见操作。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.Cryptography.X509.FindFirstOrDefault(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <summary>
+            尝试从指定的位置查找证书。
+            </summary>
+            <param name="storeName">存储区名称。</param>
+            <param name="storeLocation">存储区位置。</param>
+            <param name="findValue">主题名称查询条件。</param>
+            <returns>找到则返回第一个符合条件的证书，否则返回空。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.Cryptography.X509.EnsureCertificateInstalled(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String,System.String)">
+            <summary>
+            确保 pfx 证书文件已安装在指定位置。
+            </summary>
+            <param name="storeName">存储区名称。</param>
+            <param name="storeLocation">存储区位置。</param>
+            <param name="findValue">主题名称查询条件。</param>
+            <param name="pfxFilePath">pfx 文件路径。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.Cryptography.X509.EnsureCertificateInstalled(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String,System.String,System.String)">
+            <summary>
+            确保 pfx 证书文件已安装在指定位置。
+            </summary>
+            <param name="storeName">存储区名称。</param>
+            <param name="storeLocation">存储区位置。</param>
+            <param name="findValue">主题名称查询条件。</param>
+            <param name="pfxFilePath">pfx 文件路径。</param>
+            <param name="password">pfx 密码。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.Cryptography.X509.AddToSsl(System.String,System.Net.IPAddress,System.Int32,System.Byte[],System.Guid)">
+            <summary>
+            在 Windows XP/Server 2003 及以下系统上开通 SSL。
+            </summary>
+            <param name="httpCfgFilePath">httpcft.exe 文件路径。</param>
+            <param name="ip">SSL IP。</param>
+            <param name="port">SSL 端口。</param>
+            <param name="certificateHash">证书哈希值。</param>
+            <param name="appId">应用程序的 Guid。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.Cryptography.X509.AddToSsl(System.Net.IPAddress,System.Int32,System.Byte[],System.Guid)">
+            <summary>
+            在 Windows Vista/Server 2008 及以上系统上开通 SSL。
+            </summary>
+            <param name="ip">SSL IP。</param>
+            <param name="port">SSL 端口。</param>
+            <param name="certificateHash">证书哈希值。</param>
+            <param name="appId">应用程序的 Guid。</param>
+        </member>
+        <member name="T:Aris.SystemExtension.Security.FireWall">
+            <summary>
+            提供对防火墙的常见操作。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Security.FireWall.EnsureTcpPortAllowed(System.Int32)">
+            <summary>
+            确保允许指定的 TCP 端口。
+            </summary>
+            <param name="port">端口。</param>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.Input.DelegateCommand">
+            <summary>
+            将委托封装成命令。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.Input.DelegateCommandBase">
+            <summary>
+            为委托封装成命令提供基础。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommandBase.CanExecute(System.Object)">
+            <summary>
+            是否可执行。
+            </summary>
+            <param name="parameter">确定是否可执行的方法地参数。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommandBase.Execute(System.Object)">
+            <summary>
+            执行命令。
+            </summary>
+            <param name="parameter">命令执行过程的参数。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommandBase.OnCanExecuteChanged">
+            <summary>
+            引发 CanExecuteChanged 事件。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommandBase.PerformCanExecuteChanged">
+            <summary>
+            引发 CanExecuteChanged 事件。
+            </summary>
+        </member>
+        <member name="E:Aris.SystemExtension.Windows.Input.DelegateCommandBase.CanExecuteChanged">
+            <summary>
+            当出现影响是否应执行该命令的更改时发生。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.#ctor(System.Action)">
+            <summary>
+            使用执行过程初始化命令。
+            </summary>
+            <param name="execute">命令的执行过程。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            使用执行过程和是否可执行开关初始化命令。
+            </summary>
+            <param name="execute">命令的执行过程。</param>
+            <param name="canExecute">确定是否可执行的方法。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.CanExecute(System.Object)">
+            <summary>
+            是否可执行。
+            </summary>
+            <param name="parameter">不会被使用。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.CanExecute">
+            <summary>
+            是否可执行。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.Execute(System.Object)">
+            <summary>
+            执行命令。
+            </summary>
+            <param name="parameter">不会被使用。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand.Execute">
+            <summary>
+            执行命令。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.Input.DelegateCommand`1">
+            <summary>
+            将委托封装成命令。
+            </summary>
+            <typeparam name="T">命令过程及其参数的类型。</typeparam>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.#ctor(System.Action{`0})">
+            <summary>
+            使用执行过程初始化命令。
+            </summary>
+            <param name="execute">命令的执行过程。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.#ctor(System.Action{`0},System.Func{`0,System.Boolean})">
+            <summary>
+            使用执行过程和是否可执行开关初始化命令。
+            </summary>
+            <param name="execute">命令的执行过程。</param>
+            <param name="canExecute">确定是否可执行的方法。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.CanExecute(System.Object)">
+            <summary>
+            是否可执行。
+            </summary>
+            <param name="parameter">确定是否可执行的方法地参数。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.CanExecute(`0)">
+            <summary>
+            是否可执行。
+            </summary>
+            <param name="parameter">确定是否可执行的方法地参数。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.Execute(System.Object)">
+            <summary>
+            执行命令。
+            </summary>
+            <param name="parameter">命令执行过程的参数。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Input.DelegateCommand`1.Execute(`0)">
+            <summary>
+            执行命令。
+            </summary>
+            <param name="parameter">命令执行过程的参数。</param>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.Shortcut">
+            <summary>
+            提供对快捷方式的简单访问。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.IsOnDesktop">
+            <summary>
+            判断当前程序的快捷方式是否在桌面。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.IsInStartupFolder">
+            <summary>
+            判断当前程序的快捷方式是否在启动文件夹中。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.ExistIn(System.String)">
+            <summary>
+            判断当前程序的快捷方式是否在指定文件夹中。
+            </summary>
+            <param name="linkDirectory">存放快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.Exists(System.String,System.String)">
+            <summary>
+            判断指定目录中是否存在某目标的快捷方式。
+            </summary>
+            <param name="targetPath">目标文件的路径。</param>
+            <param name="linkDirectory">存放快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.SendToDesktop">
+            <summary>
+            将当前程序的快捷方式发送到桌面。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.SendToStartup">
+            <summary>
+            将当前程序的快捷方式发送到启动文件夹。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.SendTo(System.String)">
+            <summary>
+            将当前程序的快捷方式发送到指定目录。
+            </summary>
+            <param name="linkDirectory">存放新建快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.Create(System.String,System.String)">
+            <summary>
+            新建目标的快捷方式到指定目录。
+            </summary>
+            <param name="targetPath">目标文件的路径。</param>
+            <param name="linkDirectory">存放新建快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.Create(System.String,System.String,System.String)">
+            <summary>
+            新建目标的快捷方式到指定目录。
+            </summary>
+            <param name="targetPath">目标文件的路径。</param>
+            <param name="arguments">启动参数。</param>
+            <param name="linkDirectory">存放新建快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.RemoveFromDesktop">
+            <summary>
+            将当前程序的快捷方式从桌面移除。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.RemoveFromStartup">
+            <summary>
+            将当前程序的快捷方式从启动文件夹移除。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.RemoveFrom(System.String)">
+            <summary>
+            将当前程序的快捷方式从指定目录移除。
+            </summary>
+            <param name="linkDirectory">存放快捷方式的目录。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.Shortcut.Remove(System.String,System.String)">
+            <summary>
+            从指定目录移除所有指向某目标的快捷方式。
+            </summary>
+            <param name="targetPath">目标文件的路径。</param>
+            <param name="linkDirectory">存放快捷方式的目录。</param>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.SingletonApplication">
+            <summary>
+            为单实例程序的实现提供帮助。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.IsRunning(System.String)">
+            <summary>
+            检查指定程序是否已运行，如果已运行，则激活到前台。
+            </summary>
+            <param name="applicationName">用来唯一标识程序的名称。</param>
+            <returns>是否已运行。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.IsRunning(System.String,System.Boolean)">
+            <summary>
+            检查指定程序是否已运行。
+            </summary>
+            <param name="applicationName">用来唯一标识程序的名称。</param>
+            <param name="bringToForeground">如果已运行，是否激活到前台。</param>
+            <returns>是否已运行。</returns>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.BringToForeground">
+            <summary>
+            将应用程序激活到前台。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.Dispose">
+            <summary>
+            释放托管和非托管资源。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.Dispose(System.Boolean)">
+            <summary>
+            释放非托管资源并可选地释放托管资源。
+            </summary>
+            <param name="disposing">是否释放托管资源。</param>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonApplication.Finalize">
+            <summary>
+            释放非托管资源。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.SingletonWindowsFormsApplication">
+            <summary>
+            为单实例 Windows Forms 程序的实现提供帮助。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonWindowsFormsApplication.#ctor">
+            <summary>
+            屏蔽外部实例化。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonWindowsFormsApplication.BringToForeground">
+            <summary>
+            将应用程序激活到前台。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Windows.SingletonWindowsFormsApplication.Instance">
+            <summary>
+            获取此类的唯一实例。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Windows.SingletonWpfApplication">
+            <summary>
+            为单实例 WPF 程序的实现提供帮助。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonWpfApplication.#ctor">
+            <summary>
+            屏蔽外部实例化。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Windows.SingletonWpfApplication.BringToForeground">
+            <summary>
+            将应用程序激活到前台。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Windows.SingletonWpfApplication.Instance">
+            <summary>
+            获取此类的唯一实例。
+            </summary>
+        </member>
+        <member name="T:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1">
+            <summary>
+            包装 Xml 序列化器功能，提供实体与持久化文本间的快速访问。
+            </summary>
+            <typeparam name="T">可以序列化的类型。</typeparam>
+        </member>
+        <member name="M:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1.#ctor">
+            <summary>
+            初始化一个 Xml 序列化器包装，使用默认持久化文本路径。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1.#ctor(System.String)">
+            <summary>
+            使用指定的持久化文本路径初始化一个 Xml 序列化器包装。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1.Load">
+            <summary>
+            从持久化文本中加载属性值到实体。
+            </summary>
+        </member>
+        <member name="M:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1.Save">
+            <summary>
+            保存实体的属性到持久化文本。
+            </summary>
+        </member>
+        <member name="P:Aris.SystemExtension.Xml.Serialization.XmlSerializerWrapper`1.Entity">
+            <summary>
+            获取或设置持久化文本中表示的可序列化实体。
+            </summary>
+        </member>
+    </members>
+</doc>

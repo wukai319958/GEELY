@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CartFinding.CartFindingExecutor">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCBCAAEAAAAAAAAAAgBAgAAAYAAEAAAIAAA=</HashCode>
+      <FileName>CartFindingExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CartFinding.CartFindingTaskGenerator">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>CartFindingTaskGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4B5FFD6A-99E8-4E0C-BFEA-3F6E7E0E80FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Interfaces</RootNamespace>
+    <AssemblyName>Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GeelyPTL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\Interfaces.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Business\AssembleResultWriteBack.cs" />
+    <Compile Include="Business\AssortResultWriteBack.cs" />
+    <Compile Include="Business\CartFindingDeliveryResultWriteBack.cs" />
+    <Compile Include="Converters\ASM_AssembleIndicationConverter.cs" />
+    <Compile Include="Converters\ASM_AssembleResultConverter.cs" />
+    <Compile Include="Converters\AssemblingPTLConverter.cs" />
+    <Compile Include="Converters\AST_CartResultConverter.cs" />
+    <Compile Include="Converters\AST_LesTaskConverter.cs" />
+    <Compile Include="Converters\AST_PalletPickResult_PDAConverter.cs" />
+    <Compile Include="Converters\AST_LesTask_PDA_FinishConverter.cs" />
+    <Compile Include="Converters\AST_PalletArrivedConverter.cs" />
+    <Compile Include="Converters\AST_PalletResultConverter.cs" />
+    <Compile Include="Converters\CacheRegionPTLConverter.cs" />
+    <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Converters\FeedZonePTLConverter.cs" />
+    <Compile Include="Converters\FND_DeliveryResultConverter.cs" />
+    <Compile Include="Converters\PalletTaskSortComparer.cs" />
+    <Compile Include="DistributingServices\HttpService.cs" />
+    <Compile Include="DistributingServices\InitService.cs" />
+    <Compile Include="DistributingServices\PickAreaService.cs" />
+    <Compile Include="DistributingServices\ProductAreaService.cs" />
+    <Compile Include="Entities\AndroidPdaTaskInfo.cs" />
+    <Compile Include="Entities\AssortingKanbanCurrentBatchInfo.cs" />
+    <Compile Include="Entities\AssortingKanbanTaskInfo.cs" />
+    <Compile Include="Entities\AssortingKanbanTodayStatistics.cs" />
+    <Compile Include="Entities\AST_CartTaskDto.cs" />
+    <Compile Include="Entities\AST_CartTaskItemDto.cs" />
+    <Compile Include="Entities\AST_LesTask_PDA_Finish.cs" />
+    <Compile Include="Entities\AST_PalletTaskDto.cs" />
+    <Compile Include="Entities\AST_PalletTaskItemDto.cs" />
+    <Compile Include="Entities\CFG_ChannelCurrentCartDto.cs" />
+    <Compile Include="Entities\CFG_ChannelDto.cs" />
+    <Compile Include="Entities\CFG_WorkStationDto.cs" />
+    <Compile Include="Entities\DST_DistributeBatchTaskDto.cs" />
+    <Compile Include="Entities\DST_DistributeBatchTaskItemDto.cs" />
+    <Compile Include="Entities\DST_DistributeTaskDto.cs" />
+    <Compile Include="Entities\DST_DistributeTaskResultDto.cs" />
+    <Compile Include="Entities\FeedZonePTLCallBack.cs" />
+    <Compile Include="Entities\FeedZonePTLReceive.cs" />
+    <Compile Include="Entities\FND_TaskDto.cs" />
+    <Compile Include="Entities\LoginResult.cs" />
+    <Compile Include="Entities\CFG_CartDto.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceHosts.cs" />
+    <Compile Include="Services\FeedZonePDAService.cs" />
+    <Compile Include="Services\ForAssortingKanbanService.cs" />
+    <Compile Include="Services\ForCartFindingClientService.cs" />
+    <Compile Include="Services\ICacheRegionPADService.cs" />
+    <Compile Include="Services\IFeedZonePDAService.cs" />
+    <Compile Include="Services\IForAssortingKanbanService.cs" />
+    <Compile Include="Services\IForCartFindingClientService.cs" />
+    <Compile Include="Services\ILesToPtlService.cs" />
+    <Compile Include="Services\IMesToPtlService.cs" />
+    <Compile Include="InterfaceDataException.cs" />
+    <Compile Include="Services\LesToPtlService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MesToPtlService.cs" />
+    <Compile Include="Web References\PtlToLes\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PtlToMes\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GeelyPTL.snk" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PtlToLes\PtlToLesServiceService.wsdl" />
+    <None Include="Web References\PtlToLes\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PtlToMes\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PtlToMes\ToMesRemoteServiceService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ptl.Device">
+      <HintPath>..\packages\Ptl.Device.1.6.5.0\lib\net20\Ptl.Device.dll</HintPath>
+    </Reference>
+    <Reference Include="Ptl.Device.XmlSerializers">
+      <HintPath>..\packages\Ptl.Device.1.6.5.0\lib\net20\Ptl.Device.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.34.117.21:8071/mes-interface/remote/toMes%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PtlToMes\</RelPath>
+      <UpdateFromURL>http://10.34.117.21:8071/mes-interface/remote/toMes%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Interfaces_PtlToMes_ToMesRemoteServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.21.152.122:1838/Service/PtlToLesService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PtlToLes\</RelPath>
+      <UpdateFromURL>http://172.21.152.122:1838/Service/PtlToLesService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Interfaces_PtlToLes_PtlToLesServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyIndicating\AssemblyIndicating.csproj">
+      <Project>{8471e527-77a3-49b7-8150-b695a3983689}</Project>
+      <Name>AssemblyIndicating</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assorting\Assorting.csproj">
+      <Project>{409216d4-5db7-40a9-ab28-0e7d871ad389}</Project>
+      <Name>Assorting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{2048d595-943d-43e5-bbc3-5f04dea09105}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeviceCommunicationHost\DeviceCommunicationHost.csproj">
+      <Project>{8ece9516-bb88-4d14-a4bd-6f6bf49b92ba}</Project>
+      <Name>DeviceCommunicationHost</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

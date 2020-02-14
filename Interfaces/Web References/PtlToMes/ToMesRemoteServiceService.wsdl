@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://remote.ei.mes.infohow.cn/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ToMesRemoteServiceService" targetNamespace="http://remote.ei.mes.infohow.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://remote.ei.mes.infohow.cn/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="assemblyMatResult" type="tns:assemblyMatResult" />
+      <xs:element name="assemblyMatResultResponse" type="tns:assemblyMatResultResponse" />
+      <xs:element name="getVehinfo" type="tns:getVehinfo" />
+      <xs:element name="getVehinfoResponse" type="tns:getVehinfoResponse" />
+      <xs:element name="sendStorageInOutRecord" type="tns:sendStorageInOutRecord" />
+      <xs:element name="sendStorageInOutRecordResponse" type="tns:sendStorageInOutRecordResponse" />
+      <xs:element name="syncMaterialEx" type="tns:syncMaterialEx" />
+      <xs:element name="syncMaterialExResponse" type="tns:syncMaterialExResponse" />
+      <xs:complexType name="syncMaterialEx">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reqString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="syncMaterialExResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendStorageInOutRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reqString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendStorageInOutRecordResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVehinfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reqString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVehinfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="assemblyMatResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reqString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="assemblyMatResultResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="assemblyMatResultResponse">
+    <wsdl:part name="parameters" element="tns:assemblyMatResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVehinfoResponse">
+    <wsdl:part name="parameters" element="tns:getVehinfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVehinfo">
+    <wsdl:part name="parameters" element="tns:getVehinfo" />
+  </wsdl:message>
+  <wsdl:message name="assemblyMatResult">
+    <wsdl:part name="parameters" element="tns:assemblyMatResult" />
+  </wsdl:message>
+  <wsdl:message name="sendStorageInOutRecord">
+    <wsdl:part name="parameters" element="tns:sendStorageInOutRecord" />
+  </wsdl:message>
+  <wsdl:message name="sendStorageInOutRecordResponse">
+    <wsdl:part name="parameters" element="tns:sendStorageInOutRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="syncMaterialExResponse">
+    <wsdl:part name="parameters" element="tns:syncMaterialExResponse" />
+  </wsdl:message>
+  <wsdl:message name="syncMaterialEx">
+    <wsdl:part name="parameters" element="tns:syncMaterialEx" />
+  </wsdl:message>
+  <wsdl:portType name="ToMesRemoteService">
+    <wsdl:operation name="syncMaterialEx">
+      <wsdl:input name="syncMaterialEx" message="tns:syncMaterialEx" />
+      <wsdl:output name="syncMaterialExResponse" message="tns:syncMaterialExResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendStorageInOutRecord">
+      <wsdl:input name="sendStorageInOutRecord" message="tns:sendStorageInOutRecord" />
+      <wsdl:output name="sendStorageInOutRecordResponse" message="tns:sendStorageInOutRecordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVehinfo">
+      <wsdl:input name="getVehinfo" message="tns:getVehinfo" />
+      <wsdl:output name="getVehinfoResponse" message="tns:getVehinfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="assemblyMatResult">
+      <wsdl:input name="assemblyMatResult" message="tns:assemblyMatResult" />
+      <wsdl:output name="assemblyMatResultResponse" message="tns:assemblyMatResultResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ToMesRemoteServiceServiceSoapBinding" type="tns:ToMesRemoteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="syncMaterialEx">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="syncMaterialEx">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="syncMaterialExResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendStorageInOutRecord">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="sendStorageInOutRecord">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendStorageInOutRecordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVehinfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getVehinfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getVehinfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assemblyMatResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="assemblyMatResult">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="assemblyMatResultResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ToMesRemoteServiceService">
+    <wsdl:port name="ToMesRemoteServicePort" binding="tns:ToMesRemoteServiceServiceSoapBinding">
+      <soap:address location="http://localhost:8071/mes-interface/remote/toMes" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

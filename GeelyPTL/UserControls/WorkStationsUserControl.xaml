@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="GeelyPTL.UserControls.WorkStationsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localViewModels="clr-namespace:GeelyPTL.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="550"
+             d:DesignWidth="1000"
+             Background="White"
+             Initialized="UserControl_Initialized">
+    <UserControl.DataContext>
+        <localViewModels:WorkStationsViewModel x:Name="viewModel"/>
+    </UserControl.DataContext>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+            <Button x:Name="buttonRefresh"
+                    Content="刷新"
+                    Width="80"
+                    Height="30"
+                    Click="buttonRefresh_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Items}"
+                  AutoGenerateColumns="False"
+                  ColumnHeaderHeight="30"
+                  RowHeight="30"
+                  RowHeaderWidth="0"
+                  GridLinesVisibility="None"
+                  AlternatingRowBackground="AliceBlue"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CFG_WorkStation.Code}"
+                                    Header="编码"
+                                    Width="100"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName1}"
+                                    Header="料车一"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName2}"
+                                    Header="料车二"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName3}"
+                                    Header="料车三"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName4}"
+                                    Header="料车四"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName5}"
+                                    Header="料车五"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName6}"
+                                    Header="料车六"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName7}"
+                                    Header="料车七"
+                                    Width="*"/>
+                <DataGridTextColumn Binding="{Binding CurrentCartName8}"
+                                    Header="料车八"
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

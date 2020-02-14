@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5459A1C6-EE65-4AEC-BDEC-A060D69ECA3B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GeelyPTL</RootNamespace>
+    <AssemblyName>服务控制台</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GeelyPTL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aris.KEPServerExRelay.Service.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9807973c98235352, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aris Libraries\Aris.KEPServerExRelay.Service.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Aris.KEPServerExRelay.Service.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9807973c98235352, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aris Libraries\Aris.KEPServerExRelay.Service.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Aris.SystemExtension">
+      <HintPath>..\packages\Aris Libraries\Aris.SystemExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ptl.Device">
+      <HintPath>..\packages\Ptl.Device.1.6.5.0\lib\net20\Ptl.Device.dll</HintPath>
+    </Reference>
+    <Reference Include="Ptl.Device.XmlSerializers">
+      <HintPath>..\packages\Ptl.Device.1.6.5.0\lib\net20\Ptl.Device.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\AssembleStatusToTextConverter.cs" />
+    <Compile Include="Converters\AssortingStatusToTextConverter.cs" />
+    <Compile Include="Converters\IsRunningToImageSourceConverter.cs" />
+    <Compile Include="Converters\OnLineToForegroundConverter.cs" />
+    <Compile Include="Converters\CartStatusToTextConverter.cs" />
+    <Compile Include="Converters\PickStatusToTextConverter.cs" />
+    <Compile Include="Converters\FindingStatusToTextConverter.cs" />
+    <Compile Include="Converters\PalletTypeToTextConverter.cs" />
+    <Compile Include="Converters\PickStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\AssembleStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\AssortingStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\CartStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\FindingStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\ReqTypeToTextConverter.cs" />
+    <Compile Include="Dialogs\AssembleTaskItemsWindow.xaml.cs">
+      <DependentUpon>AssembleTaskItemsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\BatchAddCartWindow.xaml.cs">
+      <DependentUpon>BatchAddCartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SwitchCartWindow.xaml.cs">
+      <DependentUpon>SwitchCartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CartEditWindow.xaml.cs">
+      <DependentUpon>CartEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CartMaterialsWindow.xaml.cs">
+      <DependentUpon>CartMaterialsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CartTaskItemsWindow.xaml.cs">
+      <DependentUpon>CartTaskItemsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EmployeeAddOrEditWindow.xaml.cs">
+      <DependentUpon>EmployeeAddOrEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FndTaskItemsWindow.xaml.cs">
+      <DependentUpon>FndTaskItemsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\LesTaskItemsWindow.xaml.cs">
+      <DependentUpon>LesTaskItemsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SelectWorkStationlWindow.xaml.cs">
+      <DependentUpon>SelectWorkStationlWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SelectInitChannelWindow.xaml.cs">
+      <DependentUpon>SelectInitChannelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PalletTaskItemsWindow.xaml.cs">
+      <DependentUpon>PalletTaskItemsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalSettings.cs" />
+    <Compile Include="MenuItemUserControl.xaml.cs">
+      <DependentUpon>MenuItemUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\ChannelModel.cs" />
+    <Compile Include="Models\ChannelSelModel.cs" />
+    <Compile Include="Models\DistributeTaskModel.cs" />
+    <Compile Include="Models\MarketModel.cs" />
+    <Compile Include="Models\WorkStationModel.cs" />
+    <Compile Include="Models\WorkStationSelModel.cs" />
+    <Compile Include="UserControls\AssembleTasksUserControl.xaml.cs">
+      <DependentUpon>AssembleTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CartsUserControl.xaml.cs">
+      <DependentUpon>CartsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CartTasksUserControl.xaml.cs">
+      <DependentUpon>CartTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ChannelsUserControl.xaml.cs">
+      <DependentUpon>ChannelsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DistributeTasksUserControl.xaml.cs">
+      <DependentUpon>DistributeTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EmployeesUserControl.xaml.cs">
+      <DependentUpon>EmployeesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FindTasksUserControl.xaml.cs">
+      <DependentUpon>FindTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LesTasksUserControl.xaml.cs">
+      <DependentUpon>LesTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PalletTasksUserControl.xaml.cs">
+      <DependentUpon>PalletTasksUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ServiceUserControl.xaml.cs">
+      <DependentUpon>ServiceUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MarketUserControl.xaml.cs">
+      <DependentUpon>MarketUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WorkStationsUserControl.xaml.cs">
+      <DependentUpon>WorkStationsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CartsViewModel.cs" />
+    <Compile Include="ViewModels\ChannelsViewModel.cs" />
+    <Compile Include="ViewModels\ServiceViewModel.cs" />
+    <Compile Include="ViewModels\MarketViewModel.cs" />
+    <Compile Include="ViewModels\WorkStationsViewModel.cs" />
+    <Compile Include="WindowControlBarUserControl.xaml.cs">
+      <DependentUpon>WindowControlBarUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dialogs\AssembleTaskItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\BatchAddCartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\SwitchCartWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\CartEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\CartMaterialsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\CartTaskItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\EmployeeAddOrEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\FndTaskItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\LesTaskItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\SelectWorkStationlWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\SelectInitChannelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\PalletTaskItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MenuItemUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\AssembleTasksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CartsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CartTasksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ChannelsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DistributeTasksUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\EmployeesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FindTasksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LesTasksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PalletTasksUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ServiceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MarketUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WorkStationsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowControlBarUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GeelyPTL.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll">
+      <Link>Oracle.ManagedDataAccess.EntityFramework.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\WorkStations.png" />
+    <Resource Include="Resources\Running.png" />
+    <Resource Include="Resources\Stop.png" />
+    <Resource Include="Resources\AssembleTask.png" />
+    <Resource Include="Resources\Channels.png" />
+    <Resource Include="Resources\PalletTask.png" />
+    <Resource Include="Resources\FndTask.png" />
+    <Resource Include="Resources\Carts.png" />
+    <Resource Include="Resources\CartTask.png" />
+    <Resource Include="Resources\Service.png" />
+    <Resource Include="Resources\LesTask.png" />
+    <Resource Include="Resources\Employees.png" />
+    <None Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyIndicating\AssemblyIndicating.csproj">
+      <Project>{8471e527-77a3-49b7-8150-b695a3983689}</Project>
+      <Name>AssemblyIndicating</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assorting\Assorting.csproj">
+      <Project>{409216d4-5db7-40a9-ab28-0e7d871ad389}</Project>
+      <Name>Assorting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CartFinding\CartFinding.csproj">
+      <Project>{8ae39232-75b5-43ab-9075-bc1a260a959b}</Project>
+      <Name>CartFinding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{2048d595-943d-43e5-bbc3-5f04dea09105}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeviceCommunicationHost\DeviceCommunicationHost.csproj">
+      <Project>{8ece9516-bb88-4d14-a4bd-6f6bf49b92ba}</Project>
+      <Name>DeviceCommunicationHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributing\Distributing.csproj">
+      <Project>{264af150-05b1-4a7e-9891-ddabf3ac39ac}</Project>
+      <Name>Distributing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{4b5ffd6a-99e8-4e0c-bfea-3f6e7e0e80fb}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

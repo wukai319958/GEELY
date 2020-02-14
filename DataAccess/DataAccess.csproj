@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2048D595-943D-43E5-BBC3-5F04DEA09105}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\DataAccess.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GeelyPTL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyIndicating\ASM_AssembleIndication.cs" />
+    <Compile Include="AssemblyIndicating\ASM_AssembleIndicationItem.cs" />
+    <Compile Include="AssemblyIndicating\ASM_AssembleIndicationMessage.cs" />
+    <Compile Include="AssemblyIndicating\ASM_AssembleResult.cs" />
+    <Compile Include="AssemblyIndicating\ASM_AssembleResultItem.cs" />
+    <Compile Include="AssemblyIndicating\ASM_AssembleResultMessage.cs" />
+    <Compile Include="AssemblyIndicating\ASM_Task.cs" />
+    <Compile Include="AssemblyIndicating\ASM_TaskItem.cs" />
+    <Compile Include="AssemblyIndicating\AssembleStatus.cs" />
+    <Compile Include="Assorting\AssortingStatus.cs" />
+    <Compile Include="Assorting\AST_CartResult.cs" />
+    <Compile Include="Assorting\AST_CartResultItem.cs" />
+    <Compile Include="Assorting\AST_CartResultMessage.cs" />
+    <Compile Include="Assorting\AST_CartTask.cs" />
+    <Compile Include="Assorting\AST_CartTaskItem.cs" />
+    <Compile Include="AssortingPDA\AST_LesTaskItem_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_LesTaskMessage_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_LesTask_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletArrivedMessage_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletArrived_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletTaskItem_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletTask_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletPickResult_PDA.cs" />
+    <Compile Include="AssortingPDA\AST_PalletPickResultMessage_PDA.cs" />
+    <Compile Include="Config\CFG_MarketWorkStationCurrentCart.cs" />
+    <Compile Include="Config\CartPositionUsability.cs" />
+    <Compile Include="Config\PalletRotationStatus.cs" />
+    <Compile Include="BaseDatasInitializer.cs" />
+    <Compile Include="CartFinding\FindingStatus.cs" />
+    <Compile Include="Config\CFG_ChannelCurrentCart.cs" />
+    <Compile Include="Config\CFG_ChannelCurrentPallet.cs" />
+    <Compile Include="Config\CFG_Pallet.cs" />
+    <Compile Include="Assorting\AST_PalletArrived.cs" />
+    <Compile Include="Assorting\AST_PalletArrivedMessage.cs" />
+    <Compile Include="Assorting\AST_PalletResult.cs" />
+    <Compile Include="Assorting\AST_PalletResultItem.cs" />
+    <Compile Include="Assorting\AST_PalletResultMessage.cs" />
+    <Compile Include="CartFinding\FND_DeliveryResult.cs" />
+    <Compile Include="CartFinding\FND_DeliveryResultItem.cs" />
+    <Compile Include="CartFinding\FND_DeliveryResultMessage.cs" />
+    <Compile Include="CartFinding\FND_Task.cs" />
+    <Compile Include="Config\CartStatus.cs" />
+    <Compile Include="Config\CFG_Cart.cs" />
+    <Compile Include="Config\CFG_CartCurrentMaterial.cs" />
+    <Compile Include="Config\CFG_CartPtlDevice.cs" />
+    <Compile Include="Config\CFG_Channel.cs" />
+    <Compile Include="Config\CFG_ChannelPtlDevice.cs" />
+    <Compile Include="Assorting\AST_PalletTask.cs" />
+    <Compile Include="Config\CFG_Employee.cs" />
+    <Compile Include="Config\CFG_WorkStationCurrentCart.cs" />
+    <Compile Include="Distributing\DistributeReqTypes.cs" />
+    <Compile Include="Distributing\DST_DistributeArriveResult.cs" />
+    <Compile Include="Distributing\DST_DistributeArriveTask.cs" />
+    <Compile Include="Distributing\DST_DistributeArriveTaskResult.cs" />
+    <Compile Include="Distributing\DST_DistributeTask.cs" />
+    <Compile Include="Distributing\DST_DistributeTaskResult.cs" />
+    <Compile Include="Distributing\DST_AgvSwitch.cs" />
+    <Compile Include="GeelyPtlEntities.cs" />
+    <Compile Include="Assorting\AST_PalletTaskItem.cs" />
+    <Compile Include="Assorting\PickStatus.cs" />
+    <Compile Include="Assorting\AST_LesTask.cs" />
+    <Compile Include="Assorting\AST_LesTaskMessage.cs" />
+    <Compile Include="Assorting\AST_LesTaskItem.cs" />
+    <Compile Include="HistoryRecordsRemover.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Other\Assembling.cs" />
+    <Compile Include="Other\AssemblyLightOrder.cs" />
+    <Compile Include="Other\CacheRegion.cs" />
+    <Compile Include="Other\CacheRegionLightOrder.cs" />
+    <Compile Include="Other\FeedRecord.cs" />
+    <Compile Include="Other\FeedZone.cs" />
+    <Compile Include="Other\MarketZone.cs" />
+    <Compile Include="Other\PickZone.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Config\CFG_WorkStation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagrams\AssemblyIndicating.cd" />
+    <None Include="ClassDiagrams\Assorting.cd" />
+    <None Include="ClassDiagrams\AssortingPDA.cd" />
+    <None Include="ClassDiagrams\CartFinding.cd" />
+    <None Include="ClassDiagrams\Config.cd" />
+    <None Include="App.config" />
+    <None Include="ClassDiagrams\Distributing.cd" />
+    <None Include="GeelyPTL.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="QueryChannels">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="QueryChannelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="QueryChannelsResult" type="tns:ArrayOfCFG_ChannelDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCFG_ChannelDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CFG_ChannelDto" nillable="true" type="tns:CFG_ChannelDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CFG_ChannelDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryTodayStatistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="cfgChannelId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryTodayStatisticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="QueryTodayStatisticsResult" type="tns:AssortingKanbanTodayStatistics" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AssortingKanbanTodayStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedBatchCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalBatchCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedPalletCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalPalletCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedMaterialCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalMaterialCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryCurrentTaskInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="cfgChannelId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryCurrentTaskInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="QueryCurrentTaskInfoResult" type="tns:AssortingKanbanTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AssortingKanbanTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentBatchInfo" type="tns:AssortingKanbanCurrentBatchInfo" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentCarts" type="tns:ArrayOfCFG_ChannelCurrentCartDto" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentPalletTask" type="tns:AST_PalletTaskDto" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentCartTask" type="tns:AST_CartTaskDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AssortingKanbanCurrentBatchInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PickType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectStep" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BatchCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedPalletCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalPalletCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedMaterialTypeCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalMaterialTypeCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FinishedMaterialCount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalMaterialCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCFG_ChannelCurrentCartDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CFG_ChannelCurrentCartDto" nillable="true" type="tns:CFG_ChannelCurrentCartDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CFG_ChannelCurrentCartDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="CFG_ChannelCurrentCartId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CFG_ChannelId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Position" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CFG_CartId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CartCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CartName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AST_PalletTaskDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AST_PalletTaskId" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CFG_PalletId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PalletCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PalletType" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PalletRotationStatus" type="tns:PalletRotationStatus" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfAST_PalletTaskItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PalletRotationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="BeginRotation" />
+      <xs:enumeration value="Reversed" />
+      <xs:enumeration value="BeginReverseRotation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfAST_PalletTaskItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AST_PalletTaskItemDto" nillable="true" type="tns:AST_PalletTaskItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AST_PalletTaskItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AST_PalletTaskItemId" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FromPalletPosition" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WorkStationCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialBarcode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ToPickQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsSpecial" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsBig" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickStatus" type="tns:PickStatus" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickedQuantity" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PickStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Picking" />
+      <xs:enumeration value="Finished" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AST_CartTaskDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AST_CartTaskId" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CFG_CartId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CartCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CartName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfAST_CartTaskItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAST_CartTaskItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AST_CartTaskItemDto" nillable="true" type="tns:AST_CartTaskItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AST_CartTaskItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AST_CartTaskItemId" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CartPosition" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WorkStationCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MaterialBarcode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxQuantityInSingleCartPosition" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsSpecial" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsBig" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AssortingStatus" type="tns:AssortingStatus" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickedQuantity" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AssortingStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Assorting" />
+      <xs:enumeration value="WaitingConfirm" />
+      <xs:enumeration value="Finished" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueryPDATodayStatistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="cfgChannelId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryPDATodayStatisticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="QueryPDATodayStatisticsResult" type="tns:AssortingKanbanTodayStatistics" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AssortingKanban.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="分拣看板_ForAssortingKanban_ForAssortingKanbanService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:5980/ForAssortingKanbanService/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
